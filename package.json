@@ -1,0 +1,11 @@
+{
+	"scripts": {
+		"start": "ts-node src/schemaGenerator.ts"
+	},
+	"devDependencies": {
+		"@types/node": "^20.4.8"
+	},
+	"dependencies": {
+		"@faker-js/faker": "^8.0.2"
+	}
+}
