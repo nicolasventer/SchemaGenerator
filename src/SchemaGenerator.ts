@@ -4,7 +4,7 @@ export type SchemaGenerator<T> = T extends Array<infer U>
 	? { [K in keyof T]: SchemaGenerator<T[K]> | (() => T[K]) } | (() => T)
 	: () => T;
 
-export const _unique = <T>(gen: () => T): (() => T) => {
+export const unique_ = <T>(gen: () => T): (() => T) => {
 	const values = new Set<T>();
 	const result = () => {
 		let value = gen();
@@ -31,7 +31,7 @@ export const generate = <T>(generator: SchemaGenerator<T>): T => {
 	if (typeof generator === "object") {
 		const result: any = {};
 		for (const [key, value] of Object.entries(generator)) {
-			result[key] = generate(value);
+			result[key] = generate(value as any);
 		}
 		return result as T;
 	}
@@ -39,6 +39,7 @@ export const generate = <T>(generator: SchemaGenerator<T>): T => {
 };
 
 export class Store {
+	private constructor() {} // static only
 	private static _data = new Map<string, any>();
 	static get = <T>(key: string) => this._data.get(key) as T;
 	static set = <T>(key: string, value: T) => {

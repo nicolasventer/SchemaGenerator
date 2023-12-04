@@ -1,11 +1,30 @@
 {
-	"scripts": {
-		"start": "ts-node src/schemaGenerator.ts"
+	"name": "schemagenerator",
+	"version": "1.0.0",
+	"description": "Generator of mock data through a schema",
+	"files": [
+		"build"
+	],
+	"main": "build/SchemaGenerator.js",
+	"exports": {
+		"import": "./build/SchemaGenerator.js",
+		"require": "./build/SchemaGenerator.js",
+		"types": "./build/SchemaGenerator.d.ts"
 	},
+	"type": "commonjs",
+	"scripts": {
+		"build": "cd src && tsc"
+	},
+	"author": "Nicolas VENTER",
+	"license": "MIT",
 	"devDependencies": {
 		"@types/node": "^20.4.8"
 	},
-	"dependencies": {
-		"@faker-js/faker": "^8.0.2"
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nicolasventer/SchemaGenerator.git"
+	},
+	"bugs": {
+		"url": "https://github.com/nicolasventer/SchemaGenerator/issues"
 	}
 }

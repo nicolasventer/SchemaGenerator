@@ -1,9 +1,9 @@
 import { faker } from "@faker-js/faker";
-import { SchemaGenerator, Store, getIdFn, generate, randomBoolean } from "../SchemaGenerator";
+import { SchemaGenerator, Store, getIdFn, generate, randomBoolean, unique_, randomInt } from "../../src/SchemaGenerator";
+import fs from "fs";
+import path from "path";
 
 type Team = { id: number; name: string };
-type User = { email: string; isAdmin: boolean; teamIds: number[]; teamNames: string[] };
-// teamIds and teamNames are redundant, but we want to show how to use Store
 
 const teamGenerator: SchemaGenerator<Team[]> = [
 	{
@@ -17,14 +17,16 @@ console.log(`Start generating ${"Teams"}...`);
 const data = generate<Team[]>(teamGenerator);
 console.log(`Generating ${"Teams"} done.`);
 
-const fs = require("fs");
-const path = require("path");
 const filePath = path.join(__dirname, "Teams_10.json");
 fs.writeFileSync(filePath, JSON.stringify(data, null, "\t"));
 console.log(`File ${filePath} written.`);
 
+type User = { id: number; email: string; isAdmin: boolean; teamIds: number[]; teamNames: string[] };
+// teamIds and teamNames are redundant, but need to show how to use Store
+
 const userGenerator: SchemaGenerator<User[]> = [
 	{
+		id: unique_(randomInt), // getIdFn could be used here, but need to show how to use unique_
 		email: faker.internet.email,
 		isAdmin: randomBoolean,
 		teamIds: () => Store.set("teams", faker.helpers.arrayElements(data)).map((team: Team) => team.id),
