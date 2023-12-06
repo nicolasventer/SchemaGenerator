@@ -1,9 +1,18 @@
+/**
+ * SchemaGenerator for array: [ObjectGenerator, exactNumber | [minNumber, maxNumber] | [0, 10]] \
+ * ObjectGenerator: object with a function for each field or a function that returns the object
+ */
 export type SchemaGenerator<T> = T extends Array<infer U>
 	? [SchemaGenerator<U>, number?] | [SchemaGenerator<U>, [number, number]]
 	: T extends Record<any, any>
 	? { [K in keyof T]: SchemaGenerator<T[K]> | (() => T[K]) } | (() => T)
 	: () => T;
 
+/**
+ * create a storage that ensures uniqueness of a field in a array of object, this is reset at exit of the generated array
+ * @param gen generator for the field
+ * @returns a generator that ensures uniqueness of the field
+ */
 export const unique_ = <T>(gen: () => T): (() => T) => {
 	const values = new Set<T>();
 	const result = () => {
@@ -38,6 +47,9 @@ export const generate = <T>(generator: SchemaGenerator<T>): T => {
 	throw new Error("Generator must be a function, array, or object");
 };
 
+/**
+ * static class that allows to store and retrieve data with a key (be aware that the generation order is the order of the keys)
+ */
 export class Store {
 	private constructor() {} // static only
 	private static _data = new Map<string, any>();
@@ -48,6 +60,10 @@ export class Store {
 	};
 }
 
+/**
+ * create a function that returns an incremental id
+ * @returns a function that returns a unique id
+ */
 export const getIdFn = () => {
 	let _id = 0;
 	return () => ++_id;

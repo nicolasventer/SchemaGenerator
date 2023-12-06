@@ -1,6 +1,6 @@
 # SchemaGenerator
 
-SchemaGenerator is a typescript library for generating mock data through a schema.
+SchemaGenerator is a typescript/javascript library for generating mock data through a schema.
 
 ## Features
 
@@ -152,17 +152,32 @@ console.log(sg.generate(personGenerator));
 ## Usage
 
 ```ts
+/**
+ * SchemaGenerator for array: [ObjectGenerator, exactNumber | [minNumber, maxNumber] | [0, 10]] \
+ * ObjectGenerator: object with a function for each field or a function that returns the object
+ */
 export type SchemaGenerator<T> = T extends Array<infer U> ? [SchemaGenerator<U>, number?] | [SchemaGenerator<U>, [number, number]] : T extends Record<any, any> ? {
     [K in keyof T]: SchemaGenerator<T[K]> | (() => T[K]);
 } | (() => T) : () => T;
+/**
+ * create a storage that ensures uniqueness of a field in a array of object, this is reset at exit of the generated array
+ * @param gen generator for the field
+ * @returns a generator that ensures uniqueness of the field
+ */
 export declare const unique_: <T>(gen: () => T) => () => T;
 export declare const generate: <T>(generator: SchemaGenerator<T>) => T;
+/**
+ * static class that allows to store and retrieve data with a key (be aware that the generation order is the order of the keys)
+ */
 export declare class Store {
     private constructor();
-    private static _data;
     static get: <T>(key: string) => T;
     static set: <T>(key: string, value: T) => T;
 }
+/**
+ * create a function that returns an incremental id
+ * @returns a function that returns a unique id
+ */
 export declare const getIdFn: () => () => number;
 export declare const randomString: () => string;
 export declare const randomInt: () => number;
