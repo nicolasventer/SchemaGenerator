@@ -48,18 +48,19 @@ export class Store {
 	};
 }
 
+export const getIdFn = () => {
+	let _id = 0;
+	return () => ++_id;
+};
+
 export const randomString = () => Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 export const randomInt = () => Math.floor(Math.random() * 1000);
 export const randomFloat = () => Math.random() * 1000;
 export const randomBoolean = () => Math.random() < 0.5;
 export const randomDate = () => new Date(Math.random() * 1000000000000);
 export const getRandomEnumFn =
-	<T>(values: T[]) =>
+	<T>(values: readonly T[]) =>
 	() =>
 		values[Math.floor(Math.random() * values.length)];
 export const getRandomNumberFn = (min: number, max: number, isInt: boolean) =>
 	isInt ? () => Math.floor(Math.random() * (max - min + 1) + min) : () => Math.random() * (max - min) + min;
-export const getIdFn = () => {
-	let _id = 0;
-	return () => ++_id;
-};

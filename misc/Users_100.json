@@ -1,0 +1,2050 @@
+[
+	{
+		"id": 241,
+		"email": "Enos_Yost@yahoo.com",
+		"isAdmin": true,
+		"teamIds": [
+			1,
+			2,
+			9,
+			10,
+			6,
+			7,
+			5,
+			4,
+			3,
+			8
+		],
+		"teamNames": [
+			"Morissette Group",
+			"Rice, Leffler and Thiel",
+			"Wisoky, Roob and Walker",
+			"Lueilwitz Group",
+			"Runte - Witting",
+			"Kovacek - Nicolas",
+			"Senger LLC",
+			"Herman - Beatty",
+			"Franecki and Sons",
+			"Renner - Smitham"
+		]
+	},
+	{
+		"id": 263,
+		"email": "Lydia70@yahoo.com",
+		"isAdmin": false,
+		"teamIds": [
+			8,
+			4,
+			1,
+			5
+		],
+		"teamNames": [
+			"Renner - Smitham",
+			"Herman - Beatty",
+			"Morissette Group",
+			"Senger LLC"
+		]
+	},
+	{
+		"id": 707,
+		"email": "Kole.Reynolds@yahoo.com",
+		"isAdmin": true,
+		"teamIds": [
+			7,
+			6,
+			10
+		],
+		"teamNames": [
+			"Kovacek - Nicolas",
+			"Runte - Witting",
+			"Lueilwitz Group"
+		]
+	},
+	{
+		"id": 920,
+		"email": "Nathanial.Schaefer86@hotmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			1,
+			2,
+			9,
+			6,
+			3
+		],
+		"teamNames": [
+			"Morissette Group",
+			"Rice, Leffler and Thiel",
+			"Wisoky, Roob and Walker",
+			"Runte - Witting",
+			"Franecki and Sons"
+		]
+	},
+	{
+		"id": 170,
+		"email": "America.Ebert@yahoo.com",
+		"isAdmin": false,
+		"teamIds": [
+			5,
+			2,
+			6,
+			1
+		],
+		"teamNames": [
+			"Senger LLC",
+			"Rice, Leffler and Thiel",
+			"Runte - Witting",
+			"Morissette Group"
+		]
+	},
+	{
+		"id": 498,
+		"email": "Edythe.Schimmel@yahoo.com",
+		"isAdmin": false,
+		"teamIds": [
+			10,
+			2,
+			9,
+			6,
+			3,
+			7,
+			8,
+			5
+		],
+		"teamNames": [
+			"Lueilwitz Group",
+			"Rice, Leffler and Thiel",
+			"Wisoky, Roob and Walker",
+			"Runte - Witting",
+			"Franecki and Sons",
+			"Kovacek - Nicolas",
+			"Renner - Smitham",
+			"Senger LLC"
+		]
+	},
+	{
+		"id": 531,
+		"email": "Nona_Feil@yahoo.com",
+		"isAdmin": true,
+		"teamIds": [
+			10,
+			6,
+			9,
+			1,
+			4
+		],
+		"teamNames": [
+			"Lueilwitz Group",
+			"Runte - Witting",
+			"Wisoky, Roob and Walker",
+			"Morissette Group",
+			"Herman - Beatty"
+		]
+	},
+	{
+		"id": 326,
+		"email": "Michael30@hotmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			7,
+			5,
+			3,
+			6,
+			9,
+			8,
+			10,
+			2,
+			4
+		],
+		"teamNames": [
+			"Kovacek - Nicolas",
+			"Senger LLC",
+			"Franecki and Sons",
+			"Runte - Witting",
+			"Wisoky, Roob and Walker",
+			"Renner - Smitham",
+			"Lueilwitz Group",
+			"Rice, Leffler and Thiel",
+			"Herman - Beatty"
+		]
+	},
+	{
+		"id": 11,
+		"email": "Otto.Jones@yahoo.com",
+		"isAdmin": true,
+		"teamIds": [
+			7,
+			6,
+			8,
+			9,
+			4,
+			2,
+			5
+		],
+		"teamNames": [
+			"Kovacek - Nicolas",
+			"Runte - Witting",
+			"Renner - Smitham",
+			"Wisoky, Roob and Walker",
+			"Herman - Beatty",
+			"Rice, Leffler and Thiel",
+			"Senger LLC"
+		]
+	},
+	{
+		"id": 990,
+		"email": "Shawna_Sawayn@hotmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			1,
+			3
+		],
+		"teamNames": [
+			"Morissette Group",
+			"Franecki and Sons"
+		]
+	},
+	{
+		"id": 554,
+		"email": "Elissa.Herzog@gmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			7,
+			1,
+			8,
+			3,
+			6,
+			5,
+			4
+		],
+		"teamNames": [
+			"Kovacek - Nicolas",
+			"Morissette Group",
+			"Renner - Smitham",
+			"Franecki and Sons",
+			"Runte - Witting",
+			"Senger LLC",
+			"Herman - Beatty"
+		]
+	},
+	{
+		"id": 692,
+		"email": "Geraldine_Thiel23@hotmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			1
+		],
+		"teamNames": [
+			"Morissette Group"
+		]
+	},
+	{
+		"id": 200,
+		"email": "Sydney_Price@gmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			1,
+			7,
+			10
+		],
+		"teamNames": [
+			"Morissette Group",
+			"Kovacek - Nicolas",
+			"Lueilwitz Group"
+		]
+	},
+	{
+		"id": 925,
+		"email": "Forest.Tremblay39@gmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			3
+		],
+		"teamNames": [
+			"Franecki and Sons"
+		]
+	},
+	{
+		"id": 162,
+		"email": "Claudie_Schmeler9@gmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			3,
+			5,
+			4,
+			1,
+			6,
+			7,
+			9,
+			10,
+			8,
+			2
+		],
+		"teamNames": [
+			"Franecki and Sons",
+			"Senger LLC",
+			"Herman - Beatty",
+			"Morissette Group",
+			"Runte - Witting",
+			"Kovacek - Nicolas",
+			"Wisoky, Roob and Walker",
+			"Lueilwitz Group",
+			"Renner - Smitham",
+			"Rice, Leffler and Thiel"
+		]
+	},
+	{
+		"id": 869,
+		"email": "Yvette20@yahoo.com",
+		"isAdmin": false,
+		"teamIds": [
+			2,
+			8,
+			3,
+			4,
+			10,
+			1,
+			5,
+			7
+		],
+		"teamNames": [
+			"Rice, Leffler and Thiel",
+			"Renner - Smitham",
+			"Franecki and Sons",
+			"Herman - Beatty",
+			"Lueilwitz Group",
+			"Morissette Group",
+			"Senger LLC",
+			"Kovacek - Nicolas"
+		]
+	},
+	{
+		"id": 436,
+		"email": "Dimitri.Reynolds31@hotmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			7,
+			3,
+			5,
+			10,
+			8,
+			4,
+			9,
+			2,
+			1,
+			6
+		],
+		"teamNames": [
+			"Kovacek - Nicolas",
+			"Franecki and Sons",
+			"Senger LLC",
+			"Lueilwitz Group",
+			"Renner - Smitham",
+			"Herman - Beatty",
+			"Wisoky, Roob and Walker",
+			"Rice, Leffler and Thiel",
+			"Morissette Group",
+			"Runte - Witting"
+		]
+	},
+	{
+		"id": 95,
+		"email": "Rachel23@hotmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			5,
+			10,
+			3
+		],
+		"teamNames": [
+			"Senger LLC",
+			"Lueilwitz Group",
+			"Franecki and Sons"
+		]
+	},
+	{
+		"id": 204,
+		"email": "Brain32@hotmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			2,
+			1,
+			7,
+			3,
+			4,
+			9,
+			5,
+			6,
+			10
+		],
+		"teamNames": [
+			"Rice, Leffler and Thiel",
+			"Morissette Group",
+			"Kovacek - Nicolas",
+			"Franecki and Sons",
+			"Herman - Beatty",
+			"Wisoky, Roob and Walker",
+			"Senger LLC",
+			"Runte - Witting",
+			"Lueilwitz Group"
+		]
+	},
+	{
+		"id": 457,
+		"email": "Nicholas54@hotmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			4,
+			2,
+			7,
+			8,
+			10,
+			6,
+			9,
+			3,
+			5
+		],
+		"teamNames": [
+			"Herman - Beatty",
+			"Rice, Leffler and Thiel",
+			"Kovacek - Nicolas",
+			"Renner - Smitham",
+			"Lueilwitz Group",
+			"Runte - Witting",
+			"Wisoky, Roob and Walker",
+			"Franecki and Sons",
+			"Senger LLC"
+		]
+	},
+	{
+		"id": 976,
+		"email": "Johnny65@yahoo.com",
+		"isAdmin": true,
+		"teamIds": [
+			3,
+			9,
+			2
+		],
+		"teamNames": [
+			"Franecki and Sons",
+			"Wisoky, Roob and Walker",
+			"Rice, Leffler and Thiel"
+		]
+	},
+	{
+		"id": 217,
+		"email": "Myron25@yahoo.com",
+		"isAdmin": true,
+		"teamIds": [
+			2,
+			8,
+			9,
+			7,
+			1,
+			3
+		],
+		"teamNames": [
+			"Rice, Leffler and Thiel",
+			"Renner - Smitham",
+			"Wisoky, Roob and Walker",
+			"Kovacek - Nicolas",
+			"Morissette Group",
+			"Franecki and Sons"
+		]
+	},
+	{
+		"id": 49,
+		"email": "Darren64@yahoo.com",
+		"isAdmin": true,
+		"teamIds": [
+			2,
+			6,
+			1,
+			10,
+			7,
+			4,
+			5,
+			8,
+			9
+		],
+		"teamNames": [
+			"Rice, Leffler and Thiel",
+			"Runte - Witting",
+			"Morissette Group",
+			"Lueilwitz Group",
+			"Kovacek - Nicolas",
+			"Herman - Beatty",
+			"Senger LLC",
+			"Renner - Smitham",
+			"Wisoky, Roob and Walker"
+		]
+	},
+	{
+		"id": 288,
+		"email": "Gerardo_Rau17@gmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			3,
+			2,
+			6,
+			10,
+			1
+		],
+		"teamNames": [
+			"Franecki and Sons",
+			"Rice, Leffler and Thiel",
+			"Runte - Witting",
+			"Lueilwitz Group",
+			"Morissette Group"
+		]
+	},
+	{
+		"id": 633,
+		"email": "Connor.Adams77@hotmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			6,
+			3,
+			2,
+			4,
+			10,
+			9,
+			1,
+			7
+		],
+		"teamNames": [
+			"Runte - Witting",
+			"Franecki and Sons",
+			"Rice, Leffler and Thiel",
+			"Herman - Beatty",
+			"Lueilwitz Group",
+			"Wisoky, Roob and Walker",
+			"Morissette Group",
+			"Kovacek - Nicolas"
+		]
+	},
+	{
+		"id": 767,
+		"email": "Brianne_Hansen@yahoo.com",
+		"isAdmin": true,
+		"teamIds": [
+			5,
+			9,
+			10,
+			2,
+			1,
+			3,
+			6
+		],
+		"teamNames": [
+			"Senger LLC",
+			"Wisoky, Roob and Walker",
+			"Lueilwitz Group",
+			"Rice, Leffler and Thiel",
+			"Morissette Group",
+			"Franecki and Sons",
+			"Runte - Witting"
+		]
+	},
+	{
+		"id": 259,
+		"email": "Jannie.Nikolaus@gmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			5,
+			2
+		],
+		"teamNames": [
+			"Senger LLC",
+			"Rice, Leffler and Thiel"
+		]
+	},
+	{
+		"id": 414,
+		"email": "Erika64@gmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			6,
+			3,
+			5,
+			8
+		],
+		"teamNames": [
+			"Runte - Witting",
+			"Franecki and Sons",
+			"Senger LLC",
+			"Renner - Smitham"
+		]
+	},
+	{
+		"id": 235,
+		"email": "Marilyne_Senger25@yahoo.com",
+		"isAdmin": true,
+		"teamIds": [
+			6,
+			8,
+			2,
+			4
+		],
+		"teamNames": [
+			"Runte - Witting",
+			"Renner - Smitham",
+			"Rice, Leffler and Thiel",
+			"Herman - Beatty"
+		]
+	},
+	{
+		"id": 673,
+		"email": "Elvis_Franecki@hotmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			2,
+			8,
+			5,
+			7,
+			3,
+			6
+		],
+		"teamNames": [
+			"Rice, Leffler and Thiel",
+			"Renner - Smitham",
+			"Senger LLC",
+			"Kovacek - Nicolas",
+			"Franecki and Sons",
+			"Runte - Witting"
+		]
+	},
+	{
+		"id": 919,
+		"email": "Tremayne31@yahoo.com",
+		"isAdmin": true,
+		"teamIds": [
+			10,
+			4,
+			8,
+			3,
+			5,
+			2,
+			1,
+			7,
+			6,
+			9
+		],
+		"teamNames": [
+			"Lueilwitz Group",
+			"Herman - Beatty",
+			"Renner - Smitham",
+			"Franecki and Sons",
+			"Senger LLC",
+			"Rice, Leffler and Thiel",
+			"Morissette Group",
+			"Kovacek - Nicolas",
+			"Runte - Witting",
+			"Wisoky, Roob and Walker"
+		]
+	},
+	{
+		"id": 959,
+		"email": "Lyla69@gmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			9,
+			1,
+			5,
+			4,
+			7,
+			10,
+			3,
+			2,
+			8,
+			6
+		],
+		"teamNames": [
+			"Wisoky, Roob and Walker",
+			"Morissette Group",
+			"Senger LLC",
+			"Herman - Beatty",
+			"Kovacek - Nicolas",
+			"Lueilwitz Group",
+			"Franecki and Sons",
+			"Rice, Leffler and Thiel",
+			"Renner - Smitham",
+			"Runte - Witting"
+		]
+	},
+	{
+		"id": 209,
+		"email": "Trent97@hotmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			4,
+			8
+		],
+		"teamNames": [
+			"Herman - Beatty",
+			"Renner - Smitham"
+		]
+	},
+	{
+		"id": 251,
+		"email": "Onie_Satterfield89@gmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			7,
+			5,
+			9,
+			4
+		],
+		"teamNames": [
+			"Kovacek - Nicolas",
+			"Senger LLC",
+			"Wisoky, Roob and Walker",
+			"Herman - Beatty"
+		]
+	},
+	{
+		"id": 277,
+		"email": "Junius42@yahoo.com",
+		"isAdmin": true,
+		"teamIds": [
+			4,
+			1,
+			8,
+			6,
+			7
+		],
+		"teamNames": [
+			"Herman - Beatty",
+			"Morissette Group",
+			"Renner - Smitham",
+			"Runte - Witting",
+			"Kovacek - Nicolas"
+		]
+	},
+	{
+		"id": 71,
+		"email": "Destiny92@gmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			3,
+			7,
+			2,
+			4
+		],
+		"teamNames": [
+			"Franecki and Sons",
+			"Kovacek - Nicolas",
+			"Rice, Leffler and Thiel",
+			"Herman - Beatty"
+		]
+	},
+	{
+		"id": 943,
+		"email": "Javier_Schulist@gmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			4,
+			7,
+			10,
+			2,
+			5,
+			6,
+			9,
+			1,
+			3
+		],
+		"teamNames": [
+			"Herman - Beatty",
+			"Kovacek - Nicolas",
+			"Lueilwitz Group",
+			"Rice, Leffler and Thiel",
+			"Senger LLC",
+			"Runte - Witting",
+			"Wisoky, Roob and Walker",
+			"Morissette Group",
+			"Franecki and Sons"
+		]
+	},
+	{
+		"id": 330,
+		"email": "Lola_McGlynn@hotmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			2,
+			8
+		],
+		"teamNames": [
+			"Rice, Leffler and Thiel",
+			"Renner - Smitham"
+		]
+	},
+	{
+		"id": 576,
+		"email": "Bridie73@gmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			2
+		],
+		"teamNames": [
+			"Rice, Leffler and Thiel"
+		]
+	},
+	{
+		"id": 360,
+		"email": "Leonor_Reichert@gmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			9,
+			7,
+			1,
+			3
+		],
+		"teamNames": [
+			"Wisoky, Roob and Walker",
+			"Kovacek - Nicolas",
+			"Morissette Group",
+			"Franecki and Sons"
+		]
+	},
+	{
+		"id": 245,
+		"email": "Cornell_Lebsack@hotmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			6
+		],
+		"teamNames": [
+			"Runte - Witting"
+		]
+	},
+	{
+		"id": 650,
+		"email": "Bud64@yahoo.com",
+		"isAdmin": true,
+		"teamIds": [
+			2,
+			5,
+			8
+		],
+		"teamNames": [
+			"Rice, Leffler and Thiel",
+			"Senger LLC",
+			"Renner - Smitham"
+		]
+	},
+	{
+		"id": 315,
+		"email": "Cecilia.Green@yahoo.com",
+		"isAdmin": false,
+		"teamIds": [
+			8,
+			10,
+			3,
+			4,
+			9
+		],
+		"teamNames": [
+			"Renner - Smitham",
+			"Lueilwitz Group",
+			"Franecki and Sons",
+			"Herman - Beatty",
+			"Wisoky, Roob and Walker"
+		]
+	},
+	{
+		"id": 539,
+		"email": "Lysanne.Jacobi@gmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			10,
+			4,
+			1,
+			6,
+			9,
+			8,
+			7,
+			3,
+			5
+		],
+		"teamNames": [
+			"Lueilwitz Group",
+			"Herman - Beatty",
+			"Morissette Group",
+			"Runte - Witting",
+			"Wisoky, Roob and Walker",
+			"Renner - Smitham",
+			"Kovacek - Nicolas",
+			"Franecki and Sons",
+			"Senger LLC"
+		]
+	},
+	{
+		"id": 759,
+		"email": "Buddy_Turcotte@gmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			8,
+			9,
+			5,
+			7,
+			4,
+			10,
+			2,
+			1
+		],
+		"teamNames": [
+			"Renner - Smitham",
+			"Wisoky, Roob and Walker",
+			"Senger LLC",
+			"Kovacek - Nicolas",
+			"Herman - Beatty",
+			"Lueilwitz Group",
+			"Rice, Leffler and Thiel",
+			"Morissette Group"
+		]
+	},
+	{
+		"id": 788,
+		"email": "Annalise.Funk4@yahoo.com",
+		"isAdmin": true,
+		"teamIds": [
+			6,
+			5,
+			1,
+			7,
+			8,
+			9,
+			4,
+			10,
+			3
+		],
+		"teamNames": [
+			"Runte - Witting",
+			"Senger LLC",
+			"Morissette Group",
+			"Kovacek - Nicolas",
+			"Renner - Smitham",
+			"Wisoky, Roob and Walker",
+			"Herman - Beatty",
+			"Lueilwitz Group",
+			"Franecki and Sons"
+		]
+	},
+	{
+		"id": 12,
+		"email": "Marlene.Will25@hotmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			3,
+			7,
+			4,
+			1,
+			8,
+			2,
+			9
+		],
+		"teamNames": [
+			"Franecki and Sons",
+			"Kovacek - Nicolas",
+			"Herman - Beatty",
+			"Morissette Group",
+			"Renner - Smitham",
+			"Rice, Leffler and Thiel",
+			"Wisoky, Roob and Walker"
+		]
+	},
+	{
+		"id": 571,
+		"email": "Arno.Franecki74@hotmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			3
+		],
+		"teamNames": [
+			"Franecki and Sons"
+		]
+	},
+	{
+		"id": 525,
+		"email": "Manley_Yundt24@yahoo.com",
+		"isAdmin": false,
+		"teamIds": [
+			10,
+			4,
+			9,
+			5,
+			1
+		],
+		"teamNames": [
+			"Lueilwitz Group",
+			"Herman - Beatty",
+			"Wisoky, Roob and Walker",
+			"Senger LLC",
+			"Morissette Group"
+		]
+	},
+	{
+		"id": 843,
+		"email": "Maida_Auer@gmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			6
+		],
+		"teamNames": [
+			"Runte - Witting"
+		]
+	},
+	{
+		"id": 953,
+		"email": "Ella14@hotmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			2,
+			4,
+			1,
+			3,
+			6,
+			10,
+			7,
+			9,
+			8,
+			5
+		],
+		"teamNames": [
+			"Rice, Leffler and Thiel",
+			"Herman - Beatty",
+			"Morissette Group",
+			"Franecki and Sons",
+			"Runte - Witting",
+			"Lueilwitz Group",
+			"Kovacek - Nicolas",
+			"Wisoky, Roob and Walker",
+			"Renner - Smitham",
+			"Senger LLC"
+		]
+	},
+	{
+		"id": 463,
+		"email": "Meghan_Jacobi@yahoo.com",
+		"isAdmin": false,
+		"teamIds": [
+			5,
+			3,
+			8,
+			10,
+			2,
+			4,
+			7
+		],
+		"teamNames": [
+			"Senger LLC",
+			"Franecki and Sons",
+			"Renner - Smitham",
+			"Lueilwitz Group",
+			"Rice, Leffler and Thiel",
+			"Herman - Beatty",
+			"Kovacek - Nicolas"
+		]
+	},
+	{
+		"id": 885,
+		"email": "Aniya.Zulauf84@hotmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			10,
+			5,
+			3,
+			6
+		],
+		"teamNames": [
+			"Lueilwitz Group",
+			"Senger LLC",
+			"Franecki and Sons",
+			"Runte - Witting"
+		]
+	},
+	{
+		"id": 801,
+		"email": "Burley_McClure56@yahoo.com",
+		"isAdmin": false,
+		"teamIds": [
+			8,
+			5
+		],
+		"teamNames": [
+			"Renner - Smitham",
+			"Senger LLC"
+		]
+	},
+	{
+		"id": 461,
+		"email": "Elsa.McDermott96@hotmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			5,
+			3,
+			4,
+			8
+		],
+		"teamNames": [
+			"Senger LLC",
+			"Franecki and Sons",
+			"Herman - Beatty",
+			"Renner - Smitham"
+		]
+	},
+	{
+		"id": 785,
+		"email": "Edward_Brekke@yahoo.com",
+		"isAdmin": false,
+		"teamIds": [
+			1,
+			3,
+			5,
+			2,
+			10,
+			8,
+			6
+		],
+		"teamNames": [
+			"Morissette Group",
+			"Franecki and Sons",
+			"Senger LLC",
+			"Rice, Leffler and Thiel",
+			"Lueilwitz Group",
+			"Renner - Smitham",
+			"Runte - Witting"
+		]
+	},
+	{
+		"id": 395,
+		"email": "Lambert_Aufderhar@yahoo.com",
+		"isAdmin": false,
+		"teamIds": [
+			7,
+			9,
+			3,
+			6,
+			2,
+			8,
+			10,
+			1,
+			5,
+			4
+		],
+		"teamNames": [
+			"Kovacek - Nicolas",
+			"Wisoky, Roob and Walker",
+			"Franecki and Sons",
+			"Runte - Witting",
+			"Rice, Leffler and Thiel",
+			"Renner - Smitham",
+			"Lueilwitz Group",
+			"Morissette Group",
+			"Senger LLC",
+			"Herman - Beatty"
+		]
+	},
+	{
+		"id": 916,
+		"email": "Sister22@gmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			3,
+			9
+		],
+		"teamNames": [
+			"Franecki and Sons",
+			"Wisoky, Roob and Walker"
+		]
+	},
+	{
+		"id": 92,
+		"email": "Agnes76@hotmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			8,
+			5,
+			3,
+			4,
+			9,
+			10,
+			7
+		],
+		"teamNames": [
+			"Renner - Smitham",
+			"Senger LLC",
+			"Franecki and Sons",
+			"Herman - Beatty",
+			"Wisoky, Roob and Walker",
+			"Lueilwitz Group",
+			"Kovacek - Nicolas"
+		]
+	},
+	{
+		"id": 793,
+		"email": "Iliana.Nienow83@gmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			10,
+			4,
+			3,
+			5,
+			8
+		],
+		"teamNames": [
+			"Lueilwitz Group",
+			"Herman - Beatty",
+			"Franecki and Sons",
+			"Senger LLC",
+			"Renner - Smitham"
+		]
+	},
+	{
+		"id": 490,
+		"email": "Claudie11@yahoo.com",
+		"isAdmin": false,
+		"teamIds": [
+			5,
+			9,
+			4
+		],
+		"teamNames": [
+			"Senger LLC",
+			"Wisoky, Roob and Walker",
+			"Herman - Beatty"
+		]
+	},
+	{
+		"id": 129,
+		"email": "Kattie_Jacobi@yahoo.com",
+		"isAdmin": false,
+		"teamIds": [
+			2,
+			5,
+			7,
+			8,
+			4,
+			1,
+			9
+		],
+		"teamNames": [
+			"Rice, Leffler and Thiel",
+			"Senger LLC",
+			"Kovacek - Nicolas",
+			"Renner - Smitham",
+			"Herman - Beatty",
+			"Morissette Group",
+			"Wisoky, Roob and Walker"
+		]
+	},
+	{
+		"id": 928,
+		"email": "Jakayla_Friesen-Barton@hotmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			7,
+			1
+		],
+		"teamNames": [
+			"Kovacek - Nicolas",
+			"Morissette Group"
+		]
+	},
+	{
+		"id": 432,
+		"email": "Magnus_Franey-OHara70@hotmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			9,
+			6,
+			4,
+			2,
+			7,
+			5,
+			8,
+			3
+		],
+		"teamNames": [
+			"Wisoky, Roob and Walker",
+			"Runte - Witting",
+			"Herman - Beatty",
+			"Rice, Leffler and Thiel",
+			"Kovacek - Nicolas",
+			"Senger LLC",
+			"Renner - Smitham",
+			"Franecki and Sons"
+		]
+	},
+	{
+		"id": 86,
+		"email": "Alberta.Gerhold@yahoo.com",
+		"isAdmin": false,
+		"teamIds": [
+			10,
+			3,
+			6,
+			8,
+			4,
+			2,
+			1
+		],
+		"teamNames": [
+			"Lueilwitz Group",
+			"Franecki and Sons",
+			"Runte - Witting",
+			"Renner - Smitham",
+			"Herman - Beatty",
+			"Rice, Leffler and Thiel",
+			"Morissette Group"
+		]
+	},
+	{
+		"id": 168,
+		"email": "Kendrick_Mosciski82@yahoo.com",
+		"isAdmin": false,
+		"teamIds": [
+			4,
+			8,
+			9,
+			3,
+			10,
+			6,
+			5,
+			7,
+			1
+		],
+		"teamNames": [
+			"Herman - Beatty",
+			"Renner - Smitham",
+			"Wisoky, Roob and Walker",
+			"Franecki and Sons",
+			"Lueilwitz Group",
+			"Runte - Witting",
+			"Senger LLC",
+			"Kovacek - Nicolas",
+			"Morissette Group"
+		]
+	},
+	{
+		"id": 48,
+		"email": "Valentin.Connelly@yahoo.com",
+		"isAdmin": false,
+		"teamIds": [
+			5,
+			9
+		],
+		"teamNames": [
+			"Senger LLC",
+			"Wisoky, Roob and Walker"
+		]
+	},
+	{
+		"id": 594,
+		"email": "Mabelle78@yahoo.com",
+		"isAdmin": false,
+		"teamIds": [
+			9,
+			1,
+			5,
+			2,
+			10,
+			3,
+			6
+		],
+		"teamNames": [
+			"Wisoky, Roob and Walker",
+			"Morissette Group",
+			"Senger LLC",
+			"Rice, Leffler and Thiel",
+			"Lueilwitz Group",
+			"Franecki and Sons",
+			"Runte - Witting"
+		]
+	},
+	{
+		"id": 336,
+		"email": "Bryce.Goyette@yahoo.com",
+		"isAdmin": false,
+		"teamIds": [
+			8,
+			9,
+			6
+		],
+		"teamNames": [
+			"Renner - Smitham",
+			"Wisoky, Roob and Walker",
+			"Runte - Witting"
+		]
+	},
+	{
+		"id": 113,
+		"email": "Thalia.Turcotte@gmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			7,
+			10,
+			9,
+			5,
+			1
+		],
+		"teamNames": [
+			"Kovacek - Nicolas",
+			"Lueilwitz Group",
+			"Wisoky, Roob and Walker",
+			"Senger LLC",
+			"Morissette Group"
+		]
+	},
+	{
+		"id": 96,
+		"email": "Torrey74@hotmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			8,
+			6,
+			4,
+			7,
+			1
+		],
+		"teamNames": [
+			"Renner - Smitham",
+			"Runte - Witting",
+			"Herman - Beatty",
+			"Kovacek - Nicolas",
+			"Morissette Group"
+		]
+	},
+	{
+		"id": 557,
+		"email": "Gillian_Yost51@gmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			5,
+			3,
+			7,
+			2,
+			8,
+			1,
+			9,
+			4,
+			6
+		],
+		"teamNames": [
+			"Senger LLC",
+			"Franecki and Sons",
+			"Kovacek - Nicolas",
+			"Rice, Leffler and Thiel",
+			"Renner - Smitham",
+			"Morissette Group",
+			"Wisoky, Roob and Walker",
+			"Herman - Beatty",
+			"Runte - Witting"
+		]
+	},
+	{
+		"id": 618,
+		"email": "Jaydon1@hotmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			3,
+			7,
+			4,
+			2,
+			5,
+			9,
+			10,
+			1,
+			8,
+			6
+		],
+		"teamNames": [
+			"Franecki and Sons",
+			"Kovacek - Nicolas",
+			"Herman - Beatty",
+			"Rice, Leffler and Thiel",
+			"Senger LLC",
+			"Wisoky, Roob and Walker",
+			"Lueilwitz Group",
+			"Morissette Group",
+			"Renner - Smitham",
+			"Runte - Witting"
+		]
+	},
+	{
+		"id": 838,
+		"email": "Janae.Wolff85@yahoo.com",
+		"isAdmin": true,
+		"teamIds": [
+			9,
+			6,
+			5,
+			2,
+			8,
+			7,
+			4,
+			1,
+			3
+		],
+		"teamNames": [
+			"Wisoky, Roob and Walker",
+			"Runte - Witting",
+			"Senger LLC",
+			"Rice, Leffler and Thiel",
+			"Renner - Smitham",
+			"Kovacek - Nicolas",
+			"Herman - Beatty",
+			"Morissette Group",
+			"Franecki and Sons"
+		]
+	},
+	{
+		"id": 59,
+		"email": "Nicklaus.Herman-Larson@gmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			3,
+			9,
+			7,
+			2,
+			6,
+			5,
+			10,
+			1,
+			4,
+			8
+		],
+		"teamNames": [
+			"Franecki and Sons",
+			"Wisoky, Roob and Walker",
+			"Kovacek - Nicolas",
+			"Rice, Leffler and Thiel",
+			"Runte - Witting",
+			"Senger LLC",
+			"Lueilwitz Group",
+			"Morissette Group",
+			"Herman - Beatty",
+			"Renner - Smitham"
+		]
+	},
+	{
+		"id": 103,
+		"email": "Providenci91@yahoo.com",
+		"isAdmin": false,
+		"teamIds": [
+			5,
+			10,
+			8,
+			7,
+			1,
+			6,
+			3,
+			2,
+			9,
+			4
+		],
+		"teamNames": [
+			"Senger LLC",
+			"Lueilwitz Group",
+			"Renner - Smitham",
+			"Kovacek - Nicolas",
+			"Morissette Group",
+			"Runte - Witting",
+			"Franecki and Sons",
+			"Rice, Leffler and Thiel",
+			"Wisoky, Roob and Walker",
+			"Herman - Beatty"
+		]
+	},
+	{
+		"id": 728,
+		"email": "Torrey82@hotmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			9,
+			1,
+			10,
+			4,
+			2,
+			7,
+			6,
+			8
+		],
+		"teamNames": [
+			"Wisoky, Roob and Walker",
+			"Morissette Group",
+			"Lueilwitz Group",
+			"Herman - Beatty",
+			"Rice, Leffler and Thiel",
+			"Kovacek - Nicolas",
+			"Runte - Witting",
+			"Renner - Smitham"
+		]
+	},
+	{
+		"id": 784,
+		"email": "Preston.Glover39@gmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			10
+		],
+		"teamNames": [
+			"Lueilwitz Group"
+		]
+	},
+	{
+		"id": 123,
+		"email": "Ford_Hand@yahoo.com",
+		"isAdmin": true,
+		"teamIds": [
+			8,
+			2,
+			6,
+			5,
+			3
+		],
+		"teamNames": [
+			"Renner - Smitham",
+			"Rice, Leffler and Thiel",
+			"Runte - Witting",
+			"Senger LLC",
+			"Franecki and Sons"
+		]
+	},
+	{
+		"id": 830,
+		"email": "Lucinda21@gmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			9,
+			3
+		],
+		"teamNames": [
+			"Wisoky, Roob and Walker",
+			"Franecki and Sons"
+		]
+	},
+	{
+		"id": 899,
+		"email": "Alvena.Roob@yahoo.com",
+		"isAdmin": true,
+		"teamIds": [
+			4,
+			5
+		],
+		"teamNames": [
+			"Herman - Beatty",
+			"Senger LLC"
+		]
+	},
+	{
+		"id": 265,
+		"email": "Dee.Runolfsdottir65@gmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			5,
+			6,
+			4,
+			1,
+			2,
+			7,
+			8,
+			9,
+			10,
+			3
+		],
+		"teamNames": [
+			"Senger LLC",
+			"Runte - Witting",
+			"Herman - Beatty",
+			"Morissette Group",
+			"Rice, Leffler and Thiel",
+			"Kovacek - Nicolas",
+			"Renner - Smitham",
+			"Wisoky, Roob and Walker",
+			"Lueilwitz Group",
+			"Franecki and Sons"
+		]
+	},
+	{
+		"id": 133,
+		"email": "Octavia21@hotmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			2,
+			6,
+			10,
+			3,
+			1,
+			5,
+			4,
+			8,
+			9,
+			7
+		],
+		"teamNames": [
+			"Rice, Leffler and Thiel",
+			"Runte - Witting",
+			"Lueilwitz Group",
+			"Franecki and Sons",
+			"Morissette Group",
+			"Senger LLC",
+			"Herman - Beatty",
+			"Renner - Smitham",
+			"Wisoky, Roob and Walker",
+			"Kovacek - Nicolas"
+		]
+	},
+	{
+		"id": 87,
+		"email": "Pearl_Zemlak20@yahoo.com",
+		"isAdmin": false,
+		"teamIds": [
+			2,
+			3,
+			8
+		],
+		"teamNames": [
+			"Rice, Leffler and Thiel",
+			"Franecki and Sons",
+			"Renner - Smitham"
+		]
+	},
+	{
+		"id": 807,
+		"email": "Genesis.Lesch@hotmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			3,
+			8,
+			10,
+			7
+		],
+		"teamNames": [
+			"Franecki and Sons",
+			"Renner - Smitham",
+			"Lueilwitz Group",
+			"Kovacek - Nicolas"
+		]
+	},
+	{
+		"id": 743,
+		"email": "Janie_Stehr@yahoo.com",
+		"isAdmin": true,
+		"teamIds": [
+			10,
+			1,
+			9,
+			7,
+			6
+		],
+		"teamNames": [
+			"Lueilwitz Group",
+			"Morissette Group",
+			"Wisoky, Roob and Walker",
+			"Kovacek - Nicolas",
+			"Runte - Witting"
+		]
+	},
+	{
+		"id": 386,
+		"email": "Mittie_Gusikowski19@gmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			8,
+			1
+		],
+		"teamNames": [
+			"Renner - Smitham",
+			"Morissette Group"
+		]
+	},
+	{
+		"id": 279,
+		"email": "Kirsten_Oberbrunner74@gmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			3,
+			6,
+			8,
+			7,
+			10,
+			1,
+			4,
+			5
+		],
+		"teamNames": [
+			"Franecki and Sons",
+			"Runte - Witting",
+			"Renner - Smitham",
+			"Kovacek - Nicolas",
+			"Lueilwitz Group",
+			"Morissette Group",
+			"Herman - Beatty",
+			"Senger LLC"
+		]
+	},
+	{
+		"id": 283,
+		"email": "Deondre_Morissette5@gmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			4,
+			9,
+			10,
+			2,
+			3
+		],
+		"teamNames": [
+			"Herman - Beatty",
+			"Wisoky, Roob and Walker",
+			"Lueilwitz Group",
+			"Rice, Leffler and Thiel",
+			"Franecki and Sons"
+		]
+	},
+	{
+		"id": 402,
+		"email": "Oma.Swaniawski83@hotmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			5,
+			4,
+			6,
+			8,
+			7,
+			10,
+			1,
+			3
+		],
+		"teamNames": [
+			"Senger LLC",
+			"Herman - Beatty",
+			"Runte - Witting",
+			"Renner - Smitham",
+			"Kovacek - Nicolas",
+			"Lueilwitz Group",
+			"Morissette Group",
+			"Franecki and Sons"
+		]
+	},
+	{
+		"id": 369,
+		"email": "Kameron72@yahoo.com",
+		"isAdmin": true,
+		"teamIds": [
+			10,
+			5,
+			4,
+			9,
+			3,
+			8,
+			6
+		],
+		"teamNames": [
+			"Lueilwitz Group",
+			"Senger LLC",
+			"Herman - Beatty",
+			"Wisoky, Roob and Walker",
+			"Franecki and Sons",
+			"Renner - Smitham",
+			"Runte - Witting"
+		]
+	},
+	{
+		"id": 890,
+		"email": "Taryn_Dicki@yahoo.com",
+		"isAdmin": false,
+		"teamIds": [
+			7,
+			1,
+			2,
+			4,
+			6
+		],
+		"teamNames": [
+			"Kovacek - Nicolas",
+			"Morissette Group",
+			"Rice, Leffler and Thiel",
+			"Herman - Beatty",
+			"Runte - Witting"
+		]
+	},
+	{
+		"id": 648,
+		"email": "Alfred5@hotmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			5,
+			3,
+			6,
+			4,
+			7,
+			8,
+			9
+		],
+		"teamNames": [
+			"Senger LLC",
+			"Franecki and Sons",
+			"Runte - Witting",
+			"Herman - Beatty",
+			"Kovacek - Nicolas",
+			"Renner - Smitham",
+			"Wisoky, Roob and Walker"
+		]
+	},
+	{
+		"id": 303,
+		"email": "Graciela_Davis@hotmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			1,
+			10,
+			9,
+			7,
+			5,
+			2,
+			3,
+			4,
+			8,
+			6
+		],
+		"teamNames": [
+			"Morissette Group",
+			"Lueilwitz Group",
+			"Wisoky, Roob and Walker",
+			"Kovacek - Nicolas",
+			"Senger LLC",
+			"Rice, Leffler and Thiel",
+			"Franecki and Sons",
+			"Herman - Beatty",
+			"Renner - Smitham",
+			"Runte - Witting"
+		]
+	},
+	{
+		"id": 655,
+		"email": "Favian34@yahoo.com",
+		"isAdmin": false,
+		"teamIds": [
+			10,
+			8,
+			5
+		],
+		"teamNames": [
+			"Lueilwitz Group",
+			"Renner - Smitham",
+			"Senger LLC"
+		]
+	},
+	{
+		"id": 501,
+		"email": "Rosamond30@gmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			1,
+			2,
+			4,
+			10
+		],
+		"teamNames": [
+			"Morissette Group",
+			"Rice, Leffler and Thiel",
+			"Herman - Beatty",
+			"Lueilwitz Group"
+		]
+	},
+	{
+		"id": 528,
+		"email": "Kaylin_Koss@hotmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			9,
+			8,
+			2,
+			1,
+			10,
+			3
+		],
+		"teamNames": [
+			"Wisoky, Roob and Walker",
+			"Renner - Smitham",
+			"Rice, Leffler and Thiel",
+			"Morissette Group",
+			"Lueilwitz Group",
+			"Franecki and Sons"
+		]
+	},
+	{
+		"id": 459,
+		"email": "Morton93@gmail.com",
+		"isAdmin": true,
+		"teamIds": [
+			3,
+			6,
+			9,
+			1,
+			8,
+			7,
+			2,
+			5,
+			10,
+			4
+		],
+		"teamNames": [
+			"Franecki and Sons",
+			"Runte - Witting",
+			"Wisoky, Roob and Walker",
+			"Morissette Group",
+			"Renner - Smitham",
+			"Kovacek - Nicolas",
+			"Rice, Leffler and Thiel",
+			"Senger LLC",
+			"Lueilwitz Group",
+			"Herman - Beatty"
+		]
+	},
+	{
+		"id": 921,
+		"email": "Jerel_Rippin@hotmail.com",
+		"isAdmin": false,
+		"teamIds": [
+			5,
+			8,
+			2,
+			1,
+			10,
+			7
+		],
+		"teamNames": [
+			"Senger LLC",
+			"Renner - Smitham",
+			"Rice, Leffler and Thiel",
+			"Morissette Group",
+			"Lueilwitz Group",
+			"Kovacek - Nicolas"
+		]
+	},
+	{
+		"id": 172,
+		"email": "Pete_Hayes18@yahoo.com",
+		"isAdmin": false,
+		"teamIds": [
+			5,
+			6,
+			2,
+			10,
+			3,
+			1,
+			7
+		],
+		"teamNames": [
+			"Senger LLC",
+			"Runte - Witting",
+			"Rice, Leffler and Thiel",
+			"Lueilwitz Group",
+			"Franecki and Sons",
+			"Morissette Group",
+			"Kovacek - Nicolas"
+		]
+	}
+]

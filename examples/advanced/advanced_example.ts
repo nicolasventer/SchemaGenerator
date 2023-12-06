@@ -1,7 +1,7 @@
-import { faker } from "@faker-js/faker";
-import { SchemaGenerator, Store, getIdFn, generate, randomBoolean, unique_, randomInt } from "../../src/SchemaGenerator";
+import { faker } from "@faker-js/faker"; // here faker-js is used, it is not mandatory but should match perfectly with this library
+// require the build of SchemaGenerator (use: npm run build)
+import { SchemaGenerator, Store, getIdFn, generate, randomBoolean, unique_, randomInt } from "../../build/SchemaGenerator";
 import fs from "fs";
-import path from "path";
 
 type Team = { id: number; name: string };
 
@@ -10,15 +10,13 @@ const teamGenerator: SchemaGenerator<Team[]> = [
 		id: getIdFn(),
 		name: faker.company.name,
 	},
-	10,
+	10, // generate 10 teams
 ];
 
-console.log(`Start generating ${"Teams"}...`);
-const data = generate<Team[]>(teamGenerator);
-console.log(`Generating ${"Teams"} done.`);
+const teams = generate<Team[]>(teamGenerator);
 
-const filePath = path.join(__dirname, "Teams_10.json");
-fs.writeFileSync(filePath, JSON.stringify(data, null, "\t"));
+const filePath = "Teams_10.json";
+fs.writeFileSync(filePath, JSON.stringify(teams, null, "\t"));
 console.log(`File ${filePath} written.`);
 
 type User = { id: number; email: string; isAdmin: boolean; teamIds: number[]; teamNames: string[] };
@@ -29,16 +27,14 @@ const userGenerator: SchemaGenerator<User[]> = [
 		id: unique_(randomInt), // getIdFn could be used here, but need to show how to use unique_
 		email: faker.internet.email,
 		isAdmin: randomBoolean,
-		teamIds: () => Store.set("teams", faker.helpers.arrayElements(data)).map((team: Team) => team.id),
+		teamIds: () => Store.set("teams", faker.helpers.arrayElements(teams)).map((team: Team) => team.id),
 		teamNames: () => Store.get<Team[]>("teams").map((team: Team) => team.name),
 	},
-	100,
+	100, // generate 100 users
 ];
 
-console.log(`Start generating ${"Users"}...`);
 const userData = generate<User[]>(userGenerator);
-console.log(`Generating ${"Users"} done.`);
 
-const userFilePath = path.join(__dirname, "Users_100.json");
+const userFilePath = "Users_100.json";
 fs.writeFileSync(userFilePath, JSON.stringify(userData, null, "\t"));
 console.log(`File ${userFilePath} written.`);
