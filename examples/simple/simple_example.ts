@@ -1,5 +1,4 @@
-import { getRandomNumberFn } from "../../build/SchemaGenerator";
-import { SchemaGenerator, generate, getIdFn, getRandomEnumFn, randomString } from "../../src/SchemaGenerator";
+import { SchemaGenerator, generate, getIdFn, getRandomEnumFn, randomString, getRandomNumberFn } from "../../src/SchemaGenerator";
 
 const CarModels = ["Audi", "BMW", "Mercedes", "Porsche"] as const;
 

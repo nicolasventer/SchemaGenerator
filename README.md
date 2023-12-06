@@ -1,6 +1,7 @@
 # SchemaGenerator
 
 SchemaGenerator is a typescript library for generating mock data through a schema.
+
 ## Features
 
 - type checking
@@ -9,6 +10,12 @@ SchemaGenerator is a typescript library for generating mock data through a schem
 - `randomString`, `randomInt`, ... functions to generate random data (quick alternative to [faker.js](https://fakerjs.dev/))
 - `Store` static class that allows to use a generated field in another
 
+## Installation
+
+```bash
+npm install https://github.com/nicolasventer/SchemaGenerator/releases/latest/download/schemagenerator.tgz
+```
+
 ## Examples
 
 ### Simple example
@@ -16,8 +23,7 @@ SchemaGenerator is a typescript library for generating mock data through a schem
 Content of [examples/simple/simple_example.ts](examples/simple/simple_example.ts)
 
 ```ts
-import { getRandomNumberFn } from "../../build/SchemaGenerator";
-import { SchemaGenerator, generate, getIdFn, getRandomEnumFn, randomString } from "../../src/SchemaGenerator";
+import { SchemaGenerator, generate, getIdFn, getRandomEnumFn, randomString, getRandomNumberFn } from "../../src/SchemaGenerator";
 
 const CarModels = ["Audi", "BMW", "Mercedes", "Porsche"] as const;
 
