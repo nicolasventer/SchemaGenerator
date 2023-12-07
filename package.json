@@ -1,5 +1,5 @@
 {
-	"name": "schemagenerator",
+	"name": "schema-generator",
 	"version": "1.0.0",
 	"description": "Generator of mock data through a schema",
 	"files": [
