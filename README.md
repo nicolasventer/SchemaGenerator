@@ -16,6 +16,8 @@ SchemaGenerator is a typescript/javascript library for generating mock data thro
 npm install https://github.com/nicolasventer/SchemaGenerator/releases/latest/download/schema-generator.tgz
 ```
 
+*After the first installation, you can update with `npm update schema-generator`.*
+
 ## Examples
 
 ### Simple example
