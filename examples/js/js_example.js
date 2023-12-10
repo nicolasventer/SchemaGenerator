@@ -9,7 +9,7 @@ const sg = require("../../build/SchemaGenerator.js");
  * @type {sg.SchemaGenerator<Person>}
  */
 const personGenerator = {
-	age: sg.getRandomNumberFn(0, 100, true),
+	age: sg.getRandomIntFn(0, 100),
 	isMale: sg.randomBoolean,
 	name: sg.randomString,
 }; // generator for one Person

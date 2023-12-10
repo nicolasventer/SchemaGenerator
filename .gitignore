@@ -103,5 +103,5 @@ dist
 # TernJS port file
 .tern-port
 build/
-examples/**/*.json
-examples/advanced/a*.js
+examples/advanced/Teams_10.json
+examples/advanced/Users_100.json

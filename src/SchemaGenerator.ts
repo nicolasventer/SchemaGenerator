@@ -25,6 +25,14 @@ export const unique_ = <T>(gen: () => T): (() => T) => {
 	return result;
 };
 
+/**
+ * For complex objects, you will need to specify the type of the generator. \
+ * If the number of elements to generate for an array is not specified, it will be between 0 (included) and 10 (included). \
+ * If the number of elements to generate for an array is specified, it will be between min (included) and max (included). \
+ * @template T type of the object
+ * @param generator generator for the object
+ * @returns the generated object
+ */
 export const generate = <T>(generator: SchemaGenerator<T>): T => {
 	if (generator === null) throw new Error("Generator cannot be null");
 	if (Array.isArray(generator)) {
@@ -47,9 +55,7 @@ export const generate = <T>(generator: SchemaGenerator<T>): T => {
 	throw new Error("Generator must be a function, array, or object");
 };
 
-/**
- * static class that allows to store and retrieve data with a key (be aware that the generation order is the order of the keys)
- */
+/** static class that allows to store and retrieve data with a key (be aware that the generation order is the order of the keys) */
 export class Store {
 	private constructor() {} // static only
 	private static _data = new Map<string, any>();
@@ -69,14 +75,48 @@ export const getIdFn = () => {
 	return () => ++_id;
 };
 
+export const shuffle = <T>(array: T[]) => {
+	for (let i = array.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * i);
+		[array[i], array[j]] = [array[j], array[i]];
+	}
+	return array;
+};
+
+/** @returns a function that returns a random string of 22 characters */
 export const randomString = () => Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-export const randomInt = () => Math.floor(Math.random() * 1000);
-export const randomFloat = () => Math.random() * 1000;
+/** @returns a function that returns an integer between 0 and 1_000_000 (excluded) */
+export const randomInt = () => Math.floor(Math.random() * 1_000_000);
+/** @returns a function that returns a float between 0 and 1_000_000 (excluded) */
+export const randomFloat = () => Math.random() * 1_000_000;
 export const randomBoolean = () => Math.random() < 0.5;
-export const randomDate = () => new Date(Math.random() * 1000000000000);
-export const getRandomEnumFn =
+export const randomDate = () => new Date(Math.random() * 1_000_000_000_000);
+export const getRandomElementFn =
 	<T>(values: readonly T[]) =>
 	() =>
 		values[Math.floor(Math.random() * values.length)];
+export const getRandomElementsFn =
+	<T>(values: readonly T[]) =>
+	() =>
+		shuffle(values.map((value) => value)).slice(0, Math.floor(Math.random() * values.length));
+
+/**
+ * @param min minimum value (included)
+ * @param max maximum value (included)
+ * @returns a function that returns a random number between min and max (included)
+ */
+export const getRandomIntFn = (min: number, max: number) => () => Math.floor(Math.random() * (max - min + 1) + min);
+/**
+ * @param min minimum value (included)
+ * @param max maximum value (excluded)
+ * @returns a function that returns a random number between min (included) and max (excluded)
+ */
+export const getRandomFloatFn = (min: number, max: number) => () => Math.random() * (max - min) + min;
+
+// ========== DEPRECATED ==========
+
+/** @deprecated use getRandomElementFn */
+export const getRandomEnumFn = getRandomElementFn;
+/** @deprecated use getRandomIntFn or getRandomFloatFn */
 export const getRandomNumberFn = (min: number, max: number, isInt: boolean) =>
-	isInt ? () => Math.floor(Math.random() * (max - min + 1) + min) : () => Math.random() * (max - min) + min;
+	isInt ? getRandomIntFn(min, max) : getRandomFloatFn(min, max);

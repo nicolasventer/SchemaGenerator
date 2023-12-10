@@ -1,4 +1,4 @@
-import { SchemaGenerator, generate, getIdFn, getRandomEnumFn, randomString, getRandomNumberFn } from "../../src/SchemaGenerator";
+import { SchemaGenerator, generate, getIdFn, getRandomElementFn, getRandomIntFn, randomString } from "../../src/SchemaGenerator";
 
 const CarModels = ["Audi", "BMW", "Mercedes", "Porsche"] as const;
 
@@ -8,13 +8,13 @@ type Car = { model: (typeof CarModels)[number]; id: number; owner: Person };
 const carsGenerator: SchemaGenerator<Car[]> = [
 	{
 		id: getIdFn(),
-		model: getRandomEnumFn(CarModels),
+		model: getRandomElementFn(CarModels),
 		owner: {
 			name: randomString,
-			age: getRandomNumberFn(18, 100, true),
+			age: getRandomIntFn(18, 100),
 		},
 	},
-	[0, 5], // generate between 0 and 5 cars
+	[0, 5], // generate between 0 (included) and 5 (included) cars
 ];
 
 const cars = generate<Car[]>(carsGenerator);

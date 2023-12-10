@@ -25,7 +25,7 @@ npm install https://github.com/nicolasventer/SchemaGenerator/releases/latest/dow
 Content of [examples/simple/simple_example.ts](examples/simple/simple_example.ts)
 
 ```ts
-import { SchemaGenerator, generate, getIdFn, getRandomEnumFn, randomString, getRandomNumberFn } from "../../src/SchemaGenerator";
+import { SchemaGenerator, generate, getIdFn, getRandomElementFn, getRandomIntFn, randomString } from "../../src/SchemaGenerator";
 
 const CarModels = ["Audi", "BMW", "Mercedes", "Porsche"] as const;
 
@@ -35,13 +35,13 @@ type Car = { model: (typeof CarModels)[number]; id: number; owner: Person };
 const carsGenerator: SchemaGenerator<Car[]> = [
 	{
 		id: getIdFn(),
-		model: getRandomEnumFn(CarModels),
+		model: getRandomElementFn(CarModels),
 		owner: {
 			name: randomString,
-			age: getRandomNumberFn(18, 100, true),
+			age: getRandomIntFn(18, 100),
 		},
 	},
-	[0, 5], // generate between 0 and 5 cars
+	[0, 5], // generate between 0 (included) and 5 (included) cars
 ];
 
 const cars = generate<Car[]>(carsGenerator);
@@ -65,7 +65,7 @@ Example output:
   {
     id: 3,
     model: 'Porsche',
-    owner: { name: '9dsgvjpow5vhgjsy7w6rq', age: 61 }
+    owner: { name: '9dsgvjpow5vhgjsy7w6rq', age: 45 }
   }
 ]
 ```
@@ -143,7 +143,7 @@ const sg = require("../../build/SchemaGenerator.js");
  * @type {sg.SchemaGenerator<Person>}
  */
 const personGenerator = {
-	age: sg.getRandomNumberFn(0, 100, true),
+	age: sg.getRandomIntFn(0, 100),
 	isMale: sg.randomBoolean,
 	name: sg.randomString,
 }; // generator for one Person
@@ -167,10 +167,16 @@ export type SchemaGenerator<T> = T extends Array<infer U> ? [SchemaGenerator<U>,
  * @returns a generator that ensures uniqueness of the field
  */
 export declare const unique_: <T>(gen: () => T) => () => T;
-export declare const generate: <T>(generator: SchemaGenerator<T>) => T;
 /**
- * static class that allows to store and retrieve data with a key (be aware that the generation order is the order of the keys)
+ * For complex objects, you will need to specify the type of the generator. \
+ * If the number of elements to generate for an array is not specified, it will be between 0 (included) and 10 (included). \
+ * If the number of elements to generate for an array is specified, it will be between min (included) and max (included). \
+ * @template T type of the object
+ * @param generator generator for the object
+ * @returns the generated object
  */
+export declare const generate: <T>(generator: SchemaGenerator<T>) => T;
+/** static class that allows to store and retrieve data with a key (be aware that the generation order is the order of the keys) */
 export declare class Store {
     private constructor();
     static get: <T>(key: string) => T;
@@ -181,13 +187,29 @@ export declare class Store {
  * @returns a function that returns a unique id
  */
 export declare const getIdFn: () => () => number;
+export declare const shuffle: <T>(array: T[]) => T[];
+/** @returns a function that returns a random string of 22 characters */
 export declare const randomString: () => string;
+/** @returns a function that returns an integer between 0 and 1_000_000 (excluded) */
 export declare const randomInt: () => number;
+/** @returns a function that returns a float between 0 and 1_000_000 (excluded) */
 export declare const randomFloat: () => number;
 export declare const randomBoolean: () => boolean;
 export declare const randomDate: () => Date;
-export declare const getRandomEnumFn: <T>(values: readonly T[]) => () => T;
-export declare const getRandomNumberFn: (min: number, max: number, isInt: boolean) => () => number;
+export declare const getRandomElementFn: <T>(values: readonly T[]) => () => T;
+export declare const getRandomElementsFn: <T>(values: readonly T[]) => () => T[];
+/**
+ * @param min minimum value (included)
+ * @param max maximum value (included)
+ * @returns a function that returns a random number between min and max (included)
+ */
+export declare const getRandomIntFn: (min: number, max: number) => () => number;
+/**
+ * @param min minimum value (included)
+ * @param max maximum value (excluded)
+ * @returns a function that returns a random number between min (included) and max (excluded)
+ */
+export declare const getRandomFloatFn: (min: number, max: number) => () => number;
 ```
 
 # Licence
