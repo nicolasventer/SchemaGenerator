@@ -98,7 +98,7 @@ export const getRandomElementFn =
 export const getRandomElementsFn =
 	<T>(values: readonly T[]) =>
 	() =>
-		shuffle(values.map((value) => value)).slice(0, Math.floor(Math.random() * values.length));
+		shuffle(values.map((value) => value)).slice(0, Math.floor(Math.random() * (values.length + 1)));
 
 /**
  * @param min minimum value (included)
