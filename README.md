@@ -1,5 +1,9 @@
 # Schema Generator UI
 
+### [Try it online](https://nicolasventer.github.io/SchemaGenerator/)
+
+![Screenshot](misc/Schema_Generator_screenshot.jpeg)
+
 Branch with the UI of the Schema Generator.
 
 There are also all the TODOs of the project.
