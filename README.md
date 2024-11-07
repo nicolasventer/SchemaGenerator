@@ -2,6 +2,12 @@
 
 SchemaGenerator is a typescript/javascript library for generating mock data through a schema.
 
+This library does not have any dependencies but it is recommended to use it with [faker.js](https://fakerjs.dev/) for more realistic data.
+
+### [Try it online](https://nicolasventer.github.io/SchemaGenerator/)
+
+![Screenshot](misc/Schema_Generator_screenshot.jpeg)
+
 ## Features
 
 - type checking
@@ -272,7 +278,7 @@ export declare const getRandomDateFn: (min: Date, max: Date) => () => Date;
 
 ## Planned features
 
-C.f. branch [ui](/nicolasventer/SchemaGenerator/tree/ui).
+C.f. branch [ui](https://github.com/nicolasventer/SchemaGenerator/tree/ui). 
 
 # License
 
