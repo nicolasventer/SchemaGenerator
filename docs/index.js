@@ -930,9 +930,9 @@ to {
 `,kS=16,lPe=({reverseOrder:s,position:e="top-center",toastOptions:t,gutter:i,children:n,containerStyle:o,containerClassName:r})=>{let{toasts:a,handlers:l}=OAe(t);return Ui("div",{style:{position:"fixed",zIndex:9999,top:kS,left:kS,right:kS,bottom:kS,pointerEvents:"none",...o},className:r,onMouseEnter:l.startPause,onMouseLeave:l.endPause},a.map(c=>{let d=c.position||e,h=l.calculateOffset(c,{reverseOrder:s,gutter:i,defaultPosition:e}),u=rPe(d,h);return Ui(oPe,{id:c.id,key:c.id,onHeightUpdate:l.updateHeight,className:c.visible?aPe:"",style:u},c.type==="custom"?SD(c.message,c):n?n(c):Ui(sPe,{toast:c,position:d}))}))},y5e=vr;const cPe={BASE_URL:"/SchemaGenerator"};var dPe=Symbol.for("preact-signals");function YE(){if(Fh>1)Fh--;else{for(var s,e=!1;lw!==void 0;){var t=lw;for(lw=void 0,Q5++;t!==void 0;){var i=t.o;if(t.o=void 0,t.f&=-3,!(8&t.f)&&KJ(t))try{t.c()}catch(n){e||(s=n,e=!0)}t=i}}if(Q5=0,Fh--,e)throw s}}function hPe(s){if(Fh>0)return s();Fh++;try{return s()}finally{YE()}}var Mi=void 0,lw=void 0,Fh=0,Q5=0,xD=0;function qJ(s){if(Mi!==void 0){var e=s.n;if(e===void 0||e.t!==Mi)return e={i:0,S:s,p:Mi.s,n:void 0,t:Mi,e:void 0,x:void 0,r:e},Mi.s!==void 0&&(Mi.s.n=e),Mi.s=e,s.n=e,32&Mi.f&&s.S(e),e;if(e.i===-1)return e.i=0,e.n!==void 0&&(e.n.p=e.p,e.p!==void 0&&(e.p.n=e.n),e.p=Mi.s,e.n=void 0,Mi.s.n=e,Mi.s=e),e}}function Os(s){this.v=s,this.i=0,this.n=void 0,this.t=void 0}Os.prototype.brand=dPe;Os.prototype.h=function(){return!0};Os.prototype.S=function(s){this.t!==s&&s.e===void 0&&(s.x=this.t,this.t!==void 0&&(this.t.e=s),this.t=s)};Os.prototype.U=function(s){if(this.t!==void 0){var e=s.e,t=s.x;e!==void 0&&(e.x=t,s.e=void 0),t!==void 0&&(t.e=e,s.x=void 0),s===this.t&&(this.t=t)}};Os.prototype.subscribe=function(s){var e=this;return iy(function(){var t=e.value,i=Mi;Mi=void 0;try{s(t)}finally{Mi=i}})};Os.prototype.valueOf=function(){return this.value};Os.prototype.toString=function(){return this.value+""};Os.prototype.toJSON=function(){return this.value};Os.prototype.peek=function(){var s=Mi;Mi=void 0;try{return this.value}finally{Mi=s}};Object.defineProperty(Os.prototype,"value",{get:function(){var s=qJ(this);return s!==void 0&&(s.i=this.i),this.v},set:function(s){if(s!==this.v){if(Q5>100)throw new Error("Cycle detected");this.v=s,this.i++,xD++,Fh++;try{for(var e=this.t;e!==void 0;e=e.x)e.t.N()}finally{YE()}}}});function Qi(s){return new Os(s)}function KJ(s){for(var e=s.s;e!==void 0;e=e.n)if(e.S.i!==e.i||!e.S.h()||e.S.i!==e.i)return!0;return!1}function GJ(s){for(var e=s.s;e!==void 0;e=e.n){var t=e.S.n;if(t!==void 0&&(e.r=t),e.S.n=e,e.i=-1,e.n===void 0){s.s=e;break}}}function ZJ(s){for(var e=s.s,t=void 0;e!==void 0;){var i=e.p;e.i===-1?(e.S.U(e),i!==void 0&&(i.n=e.n),e.n!==void 0&&(e.n.p=i)):t=e,e.S.n=e.r,e.r!==void 0&&(e.r=void 0),e=i}s.s=t}function Cv(s){Os.call(this,void 0),this.x=s,this.s=void 0,this.g=xD-1,this.f=4}(Cv.prototype=new Os).h=function(){if(this.f&=-3,1&this.f)return!1;if((36&this.f)==32||(this.f&=-5,this.g===xD))return!0;if(this.g=xD,this.f|=1,this.i>0&&!KJ(this))return this.f&=-2,!0;var s=Mi;try{GJ(this),Mi=this;var e=this.x();(16&this.f||this.v!==e||this.i===0)&&(this.v=e,this.f&=-17,this.i++)}catch(t){this.v=t,this.f|=16,this.i++}return Mi=s,ZJ(this),this.f&=-2,!0};Cv.prototype.S=function(s){if(this.t===void 0){this.f|=36;for(var e=this.s;e!==void 0;e=e.n)e.S.S(e)}Os.prototype.S.call(this,s)};Cv.prototype.U=function(s){if(this.t!==void 0&&(Os.prototype.U.call(this,s),this.t===void 0)){this.f&=-33;for(var e=this.s;e!==void 0;e=e.n)e.S.U(e)}};Cv.prototype.N=function(){if(!(2&this.f)){this.f|=6;for(var s=this.t;s!==void 0;s=s.x)s.t.N()}};Object.defineProperty(Cv.prototype,"value",{get:function(){if(1&this.f)throw new Error("Cycle detected");var s=qJ(this);if(this.h(),s!==void 0&&(s.i=this.i),16&this.f)throw this.v;return this.v}});function Au(s){return new Cv(s)}function YJ(s){var e=s.u;if(s.u=void 0,typeof e=="function"){Fh++;var t=Mi;Mi=void 0;try{e()}catch(i){throw s.f&=-2,s.f|=8,sB(s),i}finally{Mi=t,YE()}}}function sB(s){for(var e=s.s;e!==void 0;e=e.n)e.S.U(e);s.x=void 0,s.s=void 0,YJ(s)}function uPe(s){if(Mi!==this)throw new Error("Out-of-order effect");ZJ(this),Mi=s,this.f&=-2,8&this.f&&sB(this),YE()}function ty(s){this.x=s,this.u=void 0,this.s=void 0,this.o=void 0,this.f=32}ty.prototype.c=function(){var s=this.S();try{if(8&this.f||this.x===void 0)return;var e=this.x();typeof e=="function"&&(this.u=e)}finally{s()}};ty.prototype.S=function(){if(1&this.f)throw new Error("Cycle detected");this.f|=1,this.f&=-9,YJ(this),GJ(this),Fh++;var s=Mi;return Mi=this,uPe.bind(this,s)};ty.prototype.N=function(){2&this.f||(this.f|=2,this.o=lw,lw=this)};ty.prototype.d=function(){this.f|=8,1&this.f||sB(this)};function iy(s){var e=new ty(s);try{e.c()}catch(t){throw e.d(),t}return e.d.bind(e)}var XE,_2;function wv(s,e){kt[s]=e.bind(null,kt[s]||function(){})}function LD(s){_2&&_2(),_2=s&&s.S()}function XJ(s){var e=this,t=s.data,i=gPe(t);i.value=t;var n=Td(function(){for(var o=e.__v;o=o.__;)if(o.__c){o.__c.__$f|=4;break}return e.__$u.c=function(){var r;!SU(n.peek())&&((r=e.base)==null?void 0:r.nodeType)===3?e.base.data=n.peek():(e.__$f|=1,e.setState({}))},Au(function(){var r=i.value.value;return r===0?0:r===!0?"":r||""})},[]);return n.value}XJ.displayName="_st";Object.defineProperties(Os.prototype,{constructor:{configurable:!0,value:void 0},type:{configurable:!0,value:XJ},props:{configurable:!0,get:function(){return{data:this}}},__b:{configurable:!0,value:1}});wv("__b",function(s,e){if(typeof e.type=="string"){var t,i=e.props;for(var n in i)if(n!=="children"){var o=i[n];o instanceof Os&&(t||(e.__np=t={}),t[n]=o,i[n]=o.peek())}}s(e)});wv("__r",function(s,e){LD();var t,i=e.__c;i&&(i.__$f&=-2,(t=i.__$u)===void 0&&(i.__$u=t=function(n){var o;return iy(function(){o=this}),o.c=function(){i.__$f|=1,i.setState({})},o}())),XE=i,LD(t),s(e)});wv("__e",function(s,e,t,i){LD(),XE=void 0,s(e,t,i)});wv("diffed",function(s,e){LD(),XE=void 0;var t;if(typeof e.type=="string"&&(t=e.__e)){var i=e.__np,n=e.props;if(i){var o=t.U;if(o)for(var r in o){var a=o[r];a!==void 0&&!(r in i)&&(a.d(),o[r]=void 0)}else t.U=o={};for(var l in i){var c=o[l],d=i[l];c===void 0?(c=fPe(t,l,d,n),o[l]=c):c.o(d,n)}}}s(e)});function fPe(s,e,t,i){var n=e in s&&s.ownerSVGElement===void 0,o=Qi(t);return{o:function(r,a){o.value=r,i=a},d:iy(function(){var r=o.value.value;i[e]!==r&&(i[e]=r,n?s[e]=r:r?s.setAttribute(e,r):s.removeAttribute(e))})}}wv("unmount",function(s,e){if(typeof e.type=="string"){var t=e.__e;if(t){var i=t.U;if(i){t.U=void 0;for(var n in i){var o=i[n];o&&o.d()}}}}else{var r=e.__c;if(r){var a=r.__$u;a&&(r.__$u=void 0,a.d())}}s(e)});wv("__h",function(s,e,t,i){(i<3||i===9)&&(e.__$f|=2),s(e,t,i)});Xr.prototype.shouldComponentUpdate=function(s,e){var t=this.__$u;if(!(t&&t.s!==void 0||4&this.__$f)||3&this.__$f)return!0;for(var i in e)return!0;for(var n in s)if(n!=="__source"&&s[n]!==this.props[n])return!0;for(var o in this.props)if(!(o in s))return!0;return!1};function gPe(s){return Td(function(){return Qi(s)},[])}function S5e(s){var e=Ub(s);return e.current=s,XE.__$f|=4,Td(function(){return Au(function(){return e.current()})},[])}const mPe=`import { faker } from "@faker-js/faker"; // here faker-js is used, it is not mandatory but should match perfectly with this library\r
 import dayjs from "dayjs"; // here dayjs is used, it is not mandatory but should match perfectly with this library\r
 import { Result } from "Result";\r
-import { type SchemaGenerator, Store, generate, getIdFn, getRandomElementFn,\r
-	getRandomElementsFn, getRandomFloatFn, getRandomIntFn, randomBoolean, randomDate,\r
-	randomFloat, randomInt, randomString, shuffle, unique_ } from "schema-generator";\r
+import { Store, addTime, generate, generatePreview, getIdFn, getRandomDateFn, getRandomElementFn,\r
+	getRandomElementsFn, getRandomFloatFn, getRandomIntFn, randomBoolean, randomDate, randomFloat,\r
+	randomInt, randomString, shuffle, unique_, type TimeUnitT, type SchemaGenerator } from "schema-generator";\r
 \r
 const getResult = async (): Promise<Result> => {\r
 	// DO NOT CHANGE TEXT ABOVE\r
@@ -9399,77 +9399,127 @@ export {
 
 export {};
 `,IPe=`export type Result = { name: string; data: unknown[] }[];\r
-`,TPe=`/**
- * SchemaGenerator for array: [ObjectGenerator, exactNumber | [minNumber, maxNumber] | [0, 10]] \\
- * ObjectGenerator: object with a function for each field or a function that returns the object
- */
-export type SchemaGenerator<T> = T extends Array<infer U> ? [SchemaGenerator<U>, number?] | [SchemaGenerator<U>, [number, number]] : T extends Record<any, any> ? {
-    [K in keyof T]: SchemaGenerator<T[K]> | (() => T[K]);
-} | (() => T) : () => T;
-/**
- * create a storage that ensures uniqueness of a field in a array of object, this is reset at exit of the generated array
- * @template T type of the field
- * @param gen generator for the field
- * @returns a generator that ensures uniqueness of the field
- */
-export declare const unique_: <T>(gen: () => T) => (() => T);
-/**
- * generate an object from a generator without limiting the number of elements in the array
- * @see {@link generate_}
- * @template T type of the object
- * @param generator generator for the object
- * @returns the generated object
- */
-export declare const generate: <T>(generator: SchemaGenerator<T>) => T;
-/**
- * generate an object from a generator with a limit of 10 elements in the array
- * @see {@link generate_}
- * @template T type of the object
- * @param generator generator for the object
- * @returns the generated object
- */
-export declare const generatePreview: <T>(generator: SchemaGenerator<T>) => T;
-/** static class that allows to store and retrieve data with a key (be aware that the generation order is the order of the keys) */
-export declare class Store {
-    private constructor();
-    private static _data;
-    static get: <T>(key: string) => T;
-    static set: <T>(key: string, value: T) => T;
-}
-/**
- * create a function that returns an incremental id
- * @returns a function that returns a unique id
- */
-export declare const getIdFn: () => () => number;
-/**
- * randomize the order of the elements in an array, the original array is modified
- * @template T type of the elements in the array
- * @param array array to shuffle
- * @returns the shuffled array
- */
-export declare const shuffle: <T>(array: T[]) => T[];
-/** @returns a random string of 22 characters */
-export declare const randomString: () => string;
-/** @returns an integer between 0 and 1_000_000 (excluded) */
-export declare const randomInt: () => number;
-/** @returns a float between 0 and 1_000_000 (excluded) */
-export declare const randomFloat: () => number;
-export declare const randomBoolean: () => boolean;
-export declare const randomDate: () => Date;
-export declare const getRandomElementFn: <T>(values: readonly T[]) => () => T;
-export declare const getRandomElementsFn: <T>(values: readonly T[]) => () => T[];
-/**
- * @param min minimum value (included)
- * @param max maximum value (included)
- * @returns a function that returns a random number between min and max (included)
- */
-export declare const getRandomIntFn: (min: number, max: number) => () => number;
-/**
- * @param min minimum value (included)
- * @param max maximum value (excluded)
- * @returns a function that returns a random number between min (included) and max (excluded)
- */
-export declare const getRandomFloatFn: (min: number, max: number) => () => number;
+`,TPe=`/**\r
+ * SchemaGenerator for array: [ObjectGenerator, exactNumber | [minNumber, maxNumber] | [0, 10]] \\\r
+ * ObjectGenerator: object with a function for each field or a function that returns the object\r
+ */\r
+export type SchemaGenerator<T> = T extends Array<infer U>\r
+	? [SchemaGenerator<U>, number?] | [SchemaGenerator<U>, [number, number]]\r
+	: T extends Record<any, any>\r
+	?\r
+			| {\r
+					[K in keyof T]: SchemaGenerator<T[K]> | (() => T[K]);\r
+			  }\r
+			| (() => T)\r
+	: () => T;\r
+/**\r
+ * create a storage that ensures uniqueness of a field in a array of object, this is reset at exit of the generated array\r
+ * @template T type of the field\r
+ * @param gen generator for the field\r
+ * @returns a generator that ensures uniqueness of the field\r
+ */\r
+export declare const unique_: <T>(gen: () => T) => () => T;\r
+/**\r
+ * Generate an object from a generator without limiting the number of elements in the array. \\\r
+ * For complex objects, you will need to specify the type of the generator. \\\r
+ * If the number of elements to generate for an array is not specified, it will be between 0 (included) and 10 (included). \\\r
+ * If the number of elements to generate for an array is specified, it will be between min (included) and max (included). \\\r
+ * @template T type of the object\r
+ * @param generator generator for the object\r
+ * @returns the generated object\r
+ */\r
+export declare const generate: <T>(generator: SchemaGenerator<T>) => T;\r
+/**\r
+ * Generate an object from a generator with a limit of 10 elements in the array. \\\r
+ * For complex objects, you will need to specify the type of the generator. \\\r
+ * If the number of elements to generate for an array is not specified, it will be between 0 (included) and 10 (included). \\\r
+ * If the number of elements to generate for an array is specified, it will be between min (included) and max (included). \\\r
+ * @template T type of the object\r
+ * @param generator generator for the object\r
+ * @returns the generated object\r
+ */\r
+export declare const generatePreview: <T>(generator: SchemaGenerator<T>) => T;\r
+/** static class that allows to store and retrieve data with a key (be aware that the generation order is the order of the keys) */\r
+export declare class Store {\r
+	private constructor();\r
+	private static _data;\r
+	static get: <T>(key: string) => T;\r
+	static set: <T>(key: string, value: T) => T;\r
+}\r
+/**\r
+ * create a function that returns an incremental id\r
+ * @returns a function that returns a unique id\r
+ */\r
+export declare const getIdFn: () => () => number;\r
+/**\r
+ * randomize the order of the elements in an array, the original array is modified\r
+ * @template T type of the elements in the array\r
+ * @param array array to shuffle\r
+ * @returns the shuffled array\r
+ */\r
+export declare const shuffle: <T>(array: T[]) => T[];\r
+/** @returns a random string of 22 characters */\r
+export declare const randomString: () => string;\r
+/** @returns an integer between 0 and 1_000_000 (excluded) */\r
+export declare const randomInt: () => number;\r
+/** @returns a float between 0 and 1_000_000 (excluded) */\r
+export declare const randomFloat: () => number;\r
+/** @returns a boolean */\r
+export declare const randomBoolean: () => boolean;\r
+/** @returns a random date between today minus 120 days and today plus 120 days */\r
+export declare const randomDate: () => Date;\r
+/**\r
+ * @template T type of the values\r
+ * @param values array of values\r
+ * @returns a function that returns a random element from the array\r
+ */\r
+export declare const getRandomElementFn: <T>(values: readonly T[]) => () => T;\r
+/**\r
+ * @template T type of the values\r
+ * @param values array of values\r
+ * @returns a function that returns a random unordered subset of the provided array.\r
+ */\r
+export declare const getRandomElementsFn: <T>(values: readonly T[]) => () => T[];\r
+/**\r
+ * @param min minimum value (included)\r
+ * @param max maximum value (included)\r
+ * @returns a function that returns a random number between min and max (included)\r
+ */\r
+export declare const getRandomIntFn: (min: number, max: number) => () => number;\r
+/**\r
+ * @param min minimum value (included)\r
+ * @param max maximum value (excluded)\r
+ * @returns a function that returns a random number between min (included) and max (excluded)\r
+ */\r
+export declare const getRandomFloatFn: (min: number, max: number) => () => number;\r
+/** Object that contains the time units in milliseconds */\r
+declare const TimeUnitObj: {\r
+	millisecond: number;\r
+	second: number;\r
+	minute: number;\r
+	hour: number;\r
+	day: number;\r
+	week: number;\r
+	month: number;\r
+	year: number;\r
+};\r
+/** Type of the time units, used in {@link addTime} */\r
+export type TimeUnitT = keyof typeof TimeUnitObj;\r
+/**\r
+ * Add time to a date\r
+ * @param date date to which the time will be added\r
+ * @param amount amount of time to add\r
+ * @param unit unit of time\r
+ * @returns the new date\r
+ */\r
+export declare const addTime: (date: Date, amount: number, unit: TimeUnitT) => Date;\r
+/**\r
+ * @param min minimum value (included)\r
+ * @param max maximum value (excluded)\r
+ * @returns a function that returns a random date between min (included) and max (excluded)\r
+ */\r
+export declare const getRandomDateFn: (min: Date, max: Date) => () => Date;\r
+export {};\r
 `,EPe=s=>Ss(s,[]),D5e=({selector:s="#root",children:e})=>(EPe(()=>{const t=document.createElement("style");t.innerHTML=`
 			html, body, ${s} {
 				height: 100%;
