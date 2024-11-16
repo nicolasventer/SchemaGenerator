@@ -83,7 +83,7 @@ const TableArrayPreview = ({ data, striped }: { data: unknown[]; striped: boolea
 					<Table.Tr key={index}>
 						{keys.map((key, index) => (
 							// eslint-disable-next-line react/no-array-index-key
-							<Table.Td key={index}>
+							<Table.Td key={index} style={{ whiteSpace: "pre-wrap" }}>
 								<DisplayValue data={key === INVALID_KEY ? d : d[key]} />
 							</Table.Td>
 						))}

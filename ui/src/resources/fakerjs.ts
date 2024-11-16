@@ -157,6 +157,87 @@ export declare class AnimalModule extends ModuleBase {
 	 * @since 5.5.0
 	 */
 	type(): string;
+	/**
+	 * Returns a random pet name.
+	 *
+	 * @example
+	 * faker.animal.petName() // 'Coco'
+	 *
+	 * @since 9.2.0
+	 */
+	petName(): string;
+}
+/**
+ * Module to generate book related entries.
+ *
+ * ### Overview
+ *
+ * - For a random title, use [`title()`](https://fakerjs.dev/api/book.html#title).
+ * - For a random existing author name, use [`author()`](https://fakerjs.dev/api/book.html#author).
+ * - For a random non-existing author name, use [`faker.person.fullName()`](https://fakerjs.dev/api/person.html#fullname).
+ * - For a random genre, use [`genre()`](https://fakerjs.dev/api/book.html#genre).
+ * - For a random series, use [`series()`](https://fakerjs.dev/api/book.html#series).
+ * - For a random publisher, use [`publisher()`](https://fakerjs.dev/api/book.html#publisher).
+ * - For a random book format, use [`format()`](https://fakerjs.dev/api/book.html#format).
+ * - For a random isbn, use [`faker.commerce.isbn()`](https://fakerjs.dev/api/commerce.html#isbn)
+ *
+ * All values may be localized.
+ */
+export declare class BookModule extends ModuleBase {
+	/**
+	 * Returns a random author name.
+	 *
+	 * @example
+	 * faker.book.author() // 'William Shakespeare'
+	 *
+	 * @since 9.1.0
+	 */
+	author(): string;
+	/**
+	 * Returns a random book format.
+	 *
+	 * @example
+	 * faker.book.format() // 'Hardcover'
+	 *
+	 * @since 9.1.0
+	 */
+	format(): string;
+	/**
+	 * Returns a random genre.
+	 *
+	 * @example
+	 * faker.book.genre() // 'Fantasy'
+	 *
+	 * @since 9.1.0
+	 */
+	genre(): string;
+	/**
+	 * Returns a random publisher.
+	 *
+	 * @example
+	 * faker.book.publisher() // 'Addison-Wesley'
+	 *
+	 * @since 9.1.0
+	 */
+	publisher(): string;
+	/**
+	 * Returns a random series.
+	 *
+	 * @example
+	 * faker.book.series() // 'Harry Potter'
+	 *
+	 * @since 9.1.0
+	 */
+	series(): string;
+	/**
+	 * Returns a random title.
+	 *
+	 * @example
+	 * faker.book.title() // 'Romeo and Juliet'
+	 *
+	 * @since 9.1.0
+	 */
+	title(): string;
 }
 /**
  * Color space names supported by CSS.
@@ -983,7 +1064,7 @@ export declare class CommerceModule extends ModuleBase {
 	 * Returns a product description.
 	 *
 	 * @example
-	 * faker.commerce.productDescription() // 'Andy shoes are designed to keeping...'
+	 * faker.commerce.productDescription() // 'Featuring Phosphorus-enhanced technology, our Fish offers unparalleled Modern performance'
 	 *
 	 * @since 5.0.0
 	 */
@@ -1544,6 +1625,11 @@ export declare class SimpleDateModule extends SimpleModuleBase {
  *
  * For more control, any of these methods can be customized with further options, or use [`between()`](https://fakerjs.dev/api/date.html#between) to generate a single date between two dates, or [`betweens()`](https://fakerjs.dev/api/date.html#betweens) for multiple dates.
  *
+ * If you need to generate a date range (start-end), you can do so using either of these two methods:
+ *
+ * - `const start = faker.date.soon(); const end = faker.date.soon({ refDate: start });`
+ * - `const [start, end] = faker.date.betweens({ from, to, count: 2 });` // does not work with tsconfig's `noUncheckedIndexedAccess: true`
+ *
  * Dates can be specified as Javascript Date objects, strings or UNIX timestamps.
  * For example to generate a date between 1st January 2000 and now, use:
  * ```ts
@@ -1674,7 +1760,7 @@ export declare class StringModule extends SimpleModuleBase {
 	 *
 	 * @param characters The characters to use for the string. Can be a string or an array of characters.
 	 * If it is an array, then each element is treated as a single character even if it is a string with multiple characters.
-	 * @param length The length of the string to generate. Defaults to `1`.
+	 * @param length The length of the string to generate either as a fixed length or as a length range. Defaults to `1`.
 	 * @param length.min The minimum length of the string to generate.
 	 * @param length.max The maximum length of the string to generate.
 	 *
@@ -1699,8 +1785,8 @@ export declare class StringModule extends SimpleModuleBase {
 	/**
 	 * Generating a string consisting of letters in the English alphabet.
 	 *
-	 * @param options Either the number of characters or an options instance.
-	 * @param options.length The number or range of characters to generate. Defaults to `1`.
+	 * @param options Either the length of the string to generate or the optional options object.
+	 * @param options.length The length of the string to generate either as a fixed length or as a length range. Defaults to `1`.
 	 * @param options.casing The casing of the characters. Defaults to `'mixed'`.
 	 * @param options.exclude An array with characters which should be excluded in the generated string. Defaults to `[]`.
 	 *
@@ -1716,17 +1802,17 @@ export declare class StringModule extends SimpleModuleBase {
 	 */
 	alpha(options?: number | {
 		/**
-		 * The number or range of characters to generate.
+		 * The length of the string to generate either as a fixed length or as a length range.
 		 *
 		 * @default 1
 		 */
 		length?: number | {
 			/**
-			 * The minimum number of characters to generate.
+			 * The minimum length of the string to generate.
 			 */
 			min: number;
 			/**
-			 * The maximum number of characters to generate.
+			 * The maximum length of the string to generate.
 			 */
 			max: number;
 		};
@@ -1746,8 +1832,8 @@ export declare class StringModule extends SimpleModuleBase {
 	/**
 	 * Generating a string consisting of alpha characters and digits.
 	 *
-	 * @param options Either the number of characters or an options instance.
-	 * @param options.length The number or range of characters and digits to generate. Defaults to `1`.
+	 * @param options Either the length of the string to generate or the optional options object.
+	 * @param options.length The length of the string to generate either as a fixed length or as a length range. Defaults to `1`.
 	 * @param options.casing The casing of the characters. Defaults to `'mixed'`.
 	 * @param options.exclude An array of characters and digits which should be excluded in the generated string. Defaults to `[]`.
 	 *
@@ -1763,17 +1849,17 @@ export declare class StringModule extends SimpleModuleBase {
 	 */
 	alphanumeric(options?: number | {
 		/**
-		 * The number or range of characters and digits to generate.
+		 * The length of the string to generate either as a fixed length or as a length range.
 		 *
 		 * @default 1
 		 */
 		length?: number | {
 			/**
-			 * The minimum number of characters and digits to generate.
+			 * The minimum length of the string to generate.
 			 */
 			min: number;
 			/**
-			 * The maximum number of characters and digits to generate.
+			 * The maximum length of the string to generate.
 			 */
 			max: number;
 		};
@@ -1794,7 +1880,7 @@ export declare class StringModule extends SimpleModuleBase {
 	 * Returns a [binary](https://en.wikipedia.org/wiki/Binary_number) string.
 	 *
 	 * @param options The optional options object.
-	 * @param options.length The number or range of characters to generate after the prefix. Defaults to `1`.
+	 * @param options.length The length of the string (excluding the prefix) to generate either as a fixed length or as a length range. Defaults to `1`.
 	 * @param options.prefix Prefix for the generated number. Defaults to `'0b'`.
 	 *
 	 * @see faker.number.binary(): For generating a binary number (within a range).
@@ -1810,17 +1896,17 @@ export declare class StringModule extends SimpleModuleBase {
 	 */
 	binary(options?: {
 		/**
-		 * The number or range of characters to generate after the prefix.
+		 * The length of the string (excluding the prefix) to generate either as a fixed length or as a length range.
 		 *
 		 * @default 1
 		 */
 		length?: number | {
 			/**
-			 * The minimum number of characters to generate.
+			 * The minimum length of the string (excluding the prefix) to generate.
 			 */
 			min: number;
 			/**
-			 * The maximum number of characters to generate.
+			 * The maximum length of the string (excluding the prefix) to generate.
 			 */
 			max: number;
 		};
@@ -1835,7 +1921,7 @@ export declare class StringModule extends SimpleModuleBase {
 	 * Returns an [octal](https://en.wikipedia.org/wiki/Octal) string.
 	 *
 	 * @param options The optional options object.
-	 * @param options.length The number or range of characters to generate after the prefix. Defaults to `1`.
+	 * @param options.length The length of the string (excluding the prefix) to generate either as a fixed length or as a length range. Defaults to `1`.
 	 * @param options.prefix Prefix for the generated number. Defaults to `'0o'`.
 	 *
 	 * @see faker.number.octal(): For generating an octal number (within a range).
@@ -1851,17 +1937,17 @@ export declare class StringModule extends SimpleModuleBase {
 	 */
 	octal(options?: {
 		/**
-		 * The number or range of characters to generate after the prefix.
+		 * The length of the string (excluding the prefix) to generate either as a fixed length or as a length range.
 		 *
 		 * @default 1
 		 */
 		length?: number | {
 			/**
-			 * The minimum number of characters to generate.
+			 * The minimum length of the string (excluding the prefix) to generate.
 			 */
 			min: number;
 			/**
-			 * The maximum number of characters to generate.
+			 * The maximum length of the string (excluding the prefix) to generate.
 			 */
 			max: number;
 		};
@@ -1876,7 +1962,7 @@ export declare class StringModule extends SimpleModuleBase {
 	 * Returns a [hexadecimal](https://en.wikipedia.org/wiki/Hexadecimal) string.
 	 *
 	 * @param options The optional options object.
-	 * @param options.length The number or range of characters to generate after the prefix. Defaults to `1`.
+	 * @param options.length The length of the string (excluding the prefix) to generate either as a fixed length or as a length range. Defaults to `1`.
 	 * @param options.casing Casing of the generated number. Defaults to `'mixed'`.
 	 * @param options.prefix Prefix for the generated number. Defaults to `'0x'`.
 	 *
@@ -1895,17 +1981,17 @@ export declare class StringModule extends SimpleModuleBase {
 	 */
 	hexadecimal(options?: {
 		/**
-		 * The number or range of characters to generate after the prefix.
+		 * The length of the string (excluding the prefix) to generate either as a fixed length or as a length range.
 		 *
 		 * @default 1
 		 */
 		length?: number | {
 			/**
-			 * The minimum number of characters to generate after the prefix.
+			 * The minimum length of the string (excluding the prefix) to generate.
 			 */
 			min: number;
 			/**
-			 * The maximum number of characters to generate after the prefix.
+			 * The maximum length of the string (excluding the prefix) to generate.
 			 */
 			max: number;
 		};
@@ -1925,8 +2011,8 @@ export declare class StringModule extends SimpleModuleBase {
 	/**
 	 * Generates a given length string of digits.
 	 *
-	 * @param options Either the number of characters or the options to use.
-	 * @param options.length The number or range of digits to generate. Defaults to `1`.
+	 * @param options Either the length of the string to generate or the optional options object.
+	 * @param options.length The length of the string to generate either as a fixed length or as a length range. Defaults to `1`.
 	 * @param options.allowLeadingZeros Whether leading zeros are allowed or not. Defaults to `true`.
 	 * @param options.exclude An array of digits which should be excluded in the generated string. Defaults to `[]`.
 	 *
@@ -1944,17 +2030,17 @@ export declare class StringModule extends SimpleModuleBase {
 	 */
 	numeric(options?: number | {
 		/**
-		 * The number or range of digits to generate.
+		 * The length of the string to generate either as a fixed length or as a length range.
 		 *
 		 * @default 1
 		 */
 		length?: number | {
 			/**
-			 * The minimum number of digits to generate.
+			 * The minimum length of the string to generate.
 			 */
 			min: number;
 			/**
-			 * The maximum number of digits to generate.
+			 * The maximum length of the string to generate.
 			 */
 			max: number;
 		};
@@ -1974,9 +2060,9 @@ export declare class StringModule extends SimpleModuleBase {
 	/**
 	 * Returns a string containing UTF-16 chars between 33 and 125 (`!` to `}`).
 	 *
-	 * @param length Length of the generated string. Defaults to `10`.
-	 * @param length.min The minimum number of characters to generate.
-	 * @param length.max The maximum number of characters to generate.
+	 * @param length The length of the string (excluding the prefix) to generate either as a fixed length or as a length range. Defaults to `10`.
+	 * @param length.min The minimum length of the string to generate.
+	 * @param length.max The maximum length of the string to generate.
 	 *
 	 * @example
 	 * faker.string.sample() // 'Zo!.:*e>wR'
@@ -1987,11 +2073,11 @@ export declare class StringModule extends SimpleModuleBase {
 	 */
 	sample(length?: number | {
 		/**
-		 * The minimum number of characters to generate.
+		 * The minimum length of the string to generate.
 		 */
 		min: number;
 		/**
-		 * The maximum number of characters to generate.
+		 * The maximum length of the string to generate.
 		 */
 		max: number;
 	}): string;
@@ -2005,9 +2091,32 @@ export declare class StringModule extends SimpleModuleBase {
 	 */
 	uuid(): string;
 	/**
+	 * Returns a ULID ([Universally Unique Lexicographically Sortable Identifier](https://github.com/ulid/spec)).
+	 *
+	 * @param options The optional options object.
+	 * @param options.refDate The timestamp to encode into the ULID.
+	 * The encoded timestamp is represented by the first 10 characters of the result.
+	 * Defaults to `faker.defaultRefDate()`.
+	 *
+	 * @example
+	 * faker.string.ulid() // '01ARZ3NDEKTSV4RRFFQ69G5FAV'
+	 * faker.string.ulid({ refDate: '2020-01-01T00:00:00.000Z' }) // '01DXF6DT00CX9QNNW7PNXQ3YR8'
+	 *
+	 * @since 9.1.0
+	 */
+	ulid(options?: {
+		/**
+		 * The date to use as reference point for the newly generated ULID encoded timestamp.
+		 * The encoded timestamp is represented by the first 10 characters of the result.
+		 *
+		 * @default faker.defaultRefDate()
+		 */
+		refDate?: string | Date | number;
+	}): string;
+	/**
 	 * Generates a [Nano ID](https://github.com/ai/nanoid).
 	 *
-	 * @param length Length of the generated string. Defaults to `21`.
+	 * @param length The length of the string to generate either as a fixed length or as a length range. Defaults to `21`.
 	 * @param length.min The minimum length of the Nano ID to generate.
 	 * @param length.max The maximum length of the Nano ID to generate.
 	 *
@@ -2030,13 +2139,14 @@ export declare class StringModule extends SimpleModuleBase {
 	}): string;
 	/**
 	 * Returns a string containing only special characters from the following list:
+	 *
 	 * ```txt
 	 * ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~
 	 * ```
 	 *
-	 * @param length Length of the generated string. Defaults to `1`.
-	 * @param length.min The minimum number of special characters to generate.
-	 * @param length.max The maximum number of special characters to generate.
+	 * @param length The length of the string to generate either as a fixed length or as a length range. Defaults to `1`.
+	 * @param length.min The minimum length of the string to generate.
+	 * @param length.max The maximum length of the string to generate.
 	 *
 	 * @example
 	 * faker.string.symbol() // '$'
@@ -2047,11 +2157,11 @@ export declare class StringModule extends SimpleModuleBase {
 	 */
 	symbol(length?: number | {
 		/**
-		 * The minimum number of special characters to generate.
+		 * The minimum length of the string to generate.
 		 */
 		min: number;
 		/**
-		 * The maximum number of special characters to generate.
+		 * The maximum length of the string to generate.
 		 */
 		max: number;
 	}): string;
@@ -2192,6 +2302,8 @@ export declare class FinanceModule extends ModuleBase {
 	 * faker.finance.maskedNumber(3) // '(...342)'
 	 *
 	 * @since 8.0.0
+	 *
+	 * @deprecated Use `faker.finance.iban().replace(/(?<=.{4})\w(?=.{2})/g, '*')` or a similar approach instead.
 	 */
 	maskedNumber(length?: number): string;
 	/**
@@ -2209,6 +2321,8 @@ export declare class FinanceModule extends ModuleBase {
 	 * faker.finance.maskedNumber({ length: 3, parens: false, ellipsis: false }) // '298'
 	 *
 	 * @since 8.0.0
+	 *
+	 * @deprecated Use `faker.finance.iban().replace(/(?<=.{4})\w(?=.{2})/g, '*')` or a similar approach instead.
 	 */
 	maskedNumber(options?: {
 		/**
@@ -2246,6 +2360,8 @@ export declare class FinanceModule extends ModuleBase {
 	 * faker.finance.maskedNumber({ length: 3, parens: false, ellipsis: false }) // '298'
 	 *
 	 * @since 8.0.0
+	 *
+	 * @deprecated Use `faker.finance.iban().replace(/(?<=.{4})\w(?=.{2})/g, '*')` or a similar approach instead.
 	 */
 	maskedNumber(optionsOrLength?: number | {
 		/**
@@ -2550,7 +2666,9 @@ export declare class FinanceModule extends ModuleBase {
 	 */
 	ethereumAddress(): string;
 	/**
-	 * Generates a random iban.
+	 * Generates a random IBAN.
+	 *
+	 * Please note that the generated IBAN might be invalid due to randomly generated bank codes/other country specific validation rules.
 	 *
 	 * @param options An options object.
 	 * @param options.formatted Return a formatted version of the generated IBAN. Defaults to `false`.
@@ -2604,7 +2722,7 @@ export declare class FinanceModule extends ModuleBase {
 	 *
 	 * @example
 	 * faker.finance.transactionDescription()
-	 * // 'invoice transaction at Kilback - Durgan using card ending with ***(...4316) for UAH 783.82 in account ***16168663'
+	 * // 'invoice transaction at Kilback - Durgan using card ending with ************4316 for UAH 783.82 in account ***16168663'
 	 *
 	 * @since 5.1.0
 	 */
@@ -3497,7 +3615,7 @@ export declare class HelpersModule extends SimpleHelpersModule {
  *
  * For a random user avatar image, use [`avatar()`](https://fakerjs.dev/api/image.html#avatar).
  *
- * This module previously also contained methods for specifically themed images like "fashion" or "food", but these are now deprecated. If you need more control over image type, you can request categorized images using [`urlLoremFlickr()`](https://fakerjs.dev/api/image.html#urlloremflickr), use an image provider directly or provide your own set of placeholder images.
+ * If you need more control over the content of the images, you can pass a `category` parameter e.g. `'cat'` or `'nature'` to [`urlLoremFlickr()`](https://fakerjs.dev/api/image.html#urlloremflickr) or simply use [`faker.helpers.arrayElement()`](https://fakerjs.dev/api/helpers.html#arrayelement) with your own array of image URLs.
  */
 export declare class ImageModule extends ModuleBase {
 	/**
@@ -3528,6 +3646,8 @@ export declare class ImageModule extends ModuleBase {
 	 * // 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/170.jpg'
 	 *
 	 * @since 8.0.0
+	 *
+	 * @deprecated The links are no longer working. Use `avatar()` instead.
 	 */
 	avatarLegacy(): string;
 	/**
@@ -3742,12 +3862,73 @@ export declare class ImageModule extends ModuleBase {
 export type EmojiType = "smiley" | "body" | "person" | "nature" | "food" | "travel" | "activity" | "object" | "symbol" | "flag";
 export type HTTPStatusCodeType = "informational" | "success" | "clientError" | "serverError" | "redirection";
 export type HTTPProtocolType = "http" | "https";
+export declare enum IPv4Network {
+	/**
+	 * Equivalent to: `0.0.0.0/0`
+	 */
+	Any = "any",
+	/**
+	 * Equivalent to: `127.0.0.0/8`
+	 *
+	 * @see [RFC1122](https://www.rfc-editor.org/rfc/rfc1122)
+	 */
+	Loopback = "loopback",
+	/**
+	 * Equivalent to: `10.0.0.0/8`
+	 *
+	 * @see [RFC1918](https://www.rfc-editor.org/rfc/rfc1918)
+	 */
+	PrivateA = "private-a",
+	/**
+	 * Equivalent to: `172.16.0.0/12`
+	 *
+	 * @see [RFC1918](https://www.rfc-editor.org/rfc/rfc1918)
+	 */
+	PrivateB = "private-b",
+	/**
+	 * Equivalent to: `192.168.0.0/16`
+	 *
+	 * @see [RFC1918](https://www.rfc-editor.org/rfc/rfc1918)
+	 */
+	PrivateC = "private-c",
+	/**
+	 * Equivalent to: `192.0.2.0/24`
+	 *
+	 * @see [RFC5737](https://www.rfc-editor.org/rfc/rfc5737)
+	 */
+	TestNet1 = "test-net-1",
+	/**
+	 * Equivalent to: `198.51.100.0/24`
+	 *
+	 * @see [RFC5737](https://www.rfc-editor.org/rfc/rfc5737)
+	 */
+	TestNet2 = "test-net-2",
+	/**
+	 * Equivalent to: `203.0.113.0/24`
+	 *
+	 * @see [RFC5737](https://www.rfc-editor.org/rfc/rfc5737)
+	 */
+	TestNet3 = "test-net-3",
+	/**
+	 * Equivalent to: `169.254.0.0/16`
+	 *
+	 * @see [RFC3927](https://www.rfc-editor.org/rfc/rfc3927)
+	 */
+	LinkLocal = "link-local",
+	/**
+	 * Equivalent to: `224.0.0.0/4`
+	 *
+	 * @see [RFC5771](https://www.rfc-editor.org/rfc/rfc5771)
+	 */
+	Multicast = "multicast"
+}
+export type IPv4NetworkType = `${IPv4Network}`;
 /**
  * Module to generate internet related entries.
  *
  * ### Overview
  *
- * For user accounts, you may need an [`email()`](https://fakerjs.dev/api/internet.html#email) and a [`password()`](https://fakerjs.dev/api/internet.html#password), as well as a ASCII [`userName()`](https://fakerjs.dev/api/internet.html#username) or Unicode [`displayName()`](https://fakerjs.dev/api/internet.html#displayname). Since the emails generated could coincidentally be real email addresses, you should not use these for sending real email addresses. If this is a concern, use [`exampleEmail()`](https://fakerjs.dev/api/internet.html#exampleemail) instead.
+ * For user accounts, you may need an [`email()`](https://fakerjs.dev/api/internet.html#email) and a [`password()`](https://fakerjs.dev/api/internet.html#password), as well as a ASCII [`username()`](https://fakerjs.dev/api/internet.html#username) or Unicode [`displayName()`](https://fakerjs.dev/api/internet.html#displayname). Since the emails generated could coincidentally be real email addresses, you should not use these for sending real email addresses. If this is a concern, use [`exampleEmail()`](https://fakerjs.dev/api/internet.html#exampleemail) instead.
  *
  * For websites, you can generate a [`domainName()`](https://fakerjs.dev/api/internet.html#domainname) or a full [`url()`](https://fakerjs.dev/api/internet.html#url).
  *
@@ -3861,8 +4042,48 @@ export declare class InternetModule extends ModuleBase {
 	 * faker.internet.userName({ firstName: '大羽', lastName: '陳' }) // 'hlzp8d.tpv45' - note neither name is used
 	 *
 	 * @since 2.0.1
+	 *
+	 * @deprecated Use `faker.internet.username()` instead.
 	 */
 	userName(options?: {
+		/**
+		 * The optional first name to use.
+		 *
+		 * @default faker.person.firstName()
+		 */
+		firstName?: string;
+		/**
+		 * The optional last name to use.
+		 *
+		 * @default faker.person.lastName()
+		 */
+		lastName?: string;
+	}): string;
+	/**
+	 * Generates a username using the given person's name as base.
+	 * The resulting username may use neither, one or both of the names provided.
+	 * This will always return a plain ASCII string.
+	 * Some basic stripping of accents and transliteration of characters will be done.
+	 *
+	 * @param options An options object.
+	 * @param options.firstName The optional first name to use. If not specified, a random one will be chosen.
+	 * @param options.lastName The optional last name to use. If not specified, a random one will be chosen.
+	 *
+	 * @see faker.internet.displayName(): For generating an Unicode display name.
+	 *
+	 * @example
+	 * faker.internet.username() // 'Nettie_Zboncak40'
+	 * faker.internet.username({ firstName: 'Jeanne' }) // 'Jeanne98'
+	 * faker.internet.username({ firstName: 'Jeanne' }) // 'Jeanne.Smith98'
+	 * faker.internet.username({ firstName: 'Jeanne', lastName: 'Doe'}) // 'Jeanne_Doe98'
+	 * faker.internet.username({ firstName: 'John', lastName: 'Doe' }) // 'John.Doe'
+	 * faker.internet.username({ firstName: 'Hélene', lastName: 'Müller' }) // 'Helene_Muller11'
+	 * faker.internet.username({ firstName: 'Фёдор', lastName: 'Достоевский' }) // 'Fedor.Dostoevskii50'
+	 * faker.internet.username({ firstName: '大羽', lastName: '陳' }) // 'hlzp8d.tpv45' - note neither name is used
+	 *
+	 * @since 9.1.0
+	 */
+	username(options?: {
 		/**
 		 * The optional first name to use.
 		 *
@@ -3886,7 +4107,7 @@ export declare class InternetModule extends ModuleBase {
 	 * @param options.firstName The optional first name to use. If not specified, a random one will be chosen.
 	 * @param options.lastName The optional last name to use. If not specified, a random one will be chosen.
 	 *
-	 * @see faker.internet.userName(): For generating a plain ASCII username.
+	 * @see faker.internet.username(): For generating a plain ASCII username.
 	 *
 	 * @example
 	 * faker.internet.displayName() // 'Nettie_Zboncak40'
@@ -4029,12 +4250,72 @@ export declare class InternetModule extends ModuleBase {
 	/**
 	 * Generates a random IPv4 address.
 	 *
+	 * @param options The optional options object.
+	 * @param options.cidrBlock The optional CIDR block to use. Must be in the format `x.x.x.x/y`. Defaults to `'0.0.0.0/0'`.
+	 *
 	 * @example
 	 * faker.internet.ipv4() // '245.108.222.0'
+	 * faker.internet.ipv4({ cidrBlock: '192.168.0.0/16' }) // '192.168.215.224'
 	 *
 	 * @since 6.1.1
 	 */
-	ipv4(): string;
+	ipv4(options?: {
+		/**
+		 * The optional CIDR block to use. Must be in the format `x.x.x.x/y`.
+		 *
+		 * @default '0.0.0.0/0'
+		 */
+		cidrBlock?: string;
+	}): string;
+	/**
+	 * Generates a random IPv4 address.
+	 *
+	 * @param options The optional options object.
+	 * @param options.network The optional network to use. This is intended as an alias for well-known `cidrBlock`s. Defaults to `'any'`.
+	 *
+	 * @example
+	 * faker.internet.ipv4() // '245.108.222.0'
+	 * faker.internet.ipv4({ network: 'private-a' }) // '10.199.154.205'
+	 *
+	 * @since 6.1.1
+	 */
+	ipv4(options?: {
+		/**
+		 * The optional network to use. This is intended as an alias for well-known `cidrBlock`s.
+		 *
+		 * @default 'any'
+		 */
+		network?: IPv4NetworkType;
+	}): string;
+	/**
+	 * Generates a random IPv4 address.
+	 *
+	 * @param options The optional options object.
+	 * @param options.cidrBlock The optional CIDR block to use. Must be in the format `x.x.x.x/y`. Defaults to `'0.0.0.0/0'`.
+	 * @param options.network The optional network to use. This is intended as an alias for well-known `cidrBlock`s. Defaults to `'any'`.
+	 *
+	 * @example
+	 * faker.internet.ipv4() // '245.108.222.0'
+	 * faker.internet.ipv4({ cidrBlock: '192.168.0.0/16' }) // '192.168.215.224'
+	 * faker.internet.ipv4({ network: 'private-a' }) // '10.199.154.205'
+	 *
+	 * @since 6.1.1
+	 */
+	ipv4(options?: {
+		/**
+		 * The optional CIDR block to use. Must be in the format `x.x.x.x/y`.
+		 *
+		 * @default '0.0.0.0/0'
+		 */
+		cidrBlock?: string;
+	} | {
+		/**
+		 * The optional network to use. This is intended as an alias for well-known `cidrBlock`s.
+		 *
+		 * @default 'any'
+		 */
+		network?: IPv4NetworkType;
+	}): string;
 	/**
 	 * Generates a random IPv6 address.
 	 *
@@ -4216,6 +4497,72 @@ export declare class InternetModule extends ModuleBase {
 		 */
 		types?: ReadonlyArray<EmojiType>;
 	}): string;
+	/**
+	 * Generates a random JWT (JSON Web Token) Algorithm.
+	 *
+	 * @see faker.internet.jwt(): For generating random JWT (JSON Web Token).
+	 *
+	 * @example
+	 * faker.internet.jwtAlgorithm() // 'HS256'
+	 * faker.internet.jwtAlgorithm() // 'RS512'
+	 *
+	 * @since 9.1.0
+	 */
+	jwtAlgorithm(): string;
+	/**
+	 * Generates a random JWT (JSON Web Token).
+	 *
+	 * Please note that this method generates a random signature instead of a valid one.
+	 *
+	 * @param options The optional options object.
+	 * @param options.header The Header to use for the token. Defaults to a random object with the following fields: `alg` and `typ`.
+	 * @param options.payload The Payload to use for the token. Defaults to a random object with the following fields: `iat`, `exp`, `nbf`, `iss`, `sub`, `aud`, and `jti`.
+	 * @param options.refDate The date to use as reference point for the newly generated date.
+	 *
+	 * @see https://datatracker.ietf.org/doc/html/rfc7519
+	 * @see faker.internet.jwtAlgorithm(): For generating random JWT (JSON Web Token) Algorithm.
+	 *
+	 * @example
+	 * faker.internet.jwt()
+	 * faker.internet.jwt({ header: { alg: 'HS256' }}) // 'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTg2MTM3MTIsImV4cCI6MTcxODYzMzY3OSwibmJmIjoxNjk3MjYzNjMwLCJpc3MiOiJEb3lsZSBhbmQgU29ucyIsInN1YiI6IjYxYWRkYWFmLWY4MjktNDkzZS1iNTI1LTJjMGJkNjkzOTdjNyIsImF1ZCI6IjczNjcyMjVjLWIwMWMtNGE1My1hYzQyLTYwOWJkZmI1MzBiOCIsImp0aSI6IjU2Y2ZkZjAxLWRhMzMtNGUxNi04MzJiLTFlYTk3ZGY1MTQ2YSJ9.5iUgaCaFVPZ8d1QD0xMjoeJbmPVyUfKfoRQ6Njzm5MLp5F4UMh5REbPCrW70fAkr'
+	 * faker.internet.jwt({ payload: { iss: 'Acme' }}) // 'eyJhbGciOiJFUzM4NCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBY21lIn0.syUt0GBukNac8Cn1AGKFq2SWAXWy1YIfl0uOYiwg6TZ3omAW0c7FGWY6bC7ZOFSt'
+	 * faker.internet.jwt({ refDate: '2020-01-01T00:00:00.000Z' }) // 'eyJhbGciOiJFUzM4NCIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1Nzc4MDY4NDUsImV4cCI6MTU3Nzg0NjI4MCwibmJmIjoxNTgxNTQyMDYwLCJpc3MiOiJLcmVpZ2VyLCBBbHRlbndlcnRoIGFuZCBQYXVjZWsiLCJzdWIiOiI5NzVjMjMyOS02MDlhLTRjYTYtYjBkZi05ZmY4MGZiNDUwN2QiLCJhdWQiOiI0ODQxZWYwNi01OWYwLTQzMWEtYmFmZi0xMjkxZmRhZDdhNjgiLCJqdGkiOiJmNDBjZTJiYi00ZWYyLTQ1MjMtOGIxMy1kN2Q4NTA5N2M2ZTUifQ.cuClEZQ0CyPIMVS5uxrMwWXz0wcqFFdt0oNne3PMryyly0jghkxVurss2TapMC3C'
+	 *
+	 * @since 9.1.0
+	 */
+	jwt(options?: {
+		/**
+		 * The header to use for the token. If present, it will replace any default values.
+		 *
+		 * @default
+		 * {
+		 *   alg: faker.internet.jwtAlgorithm(),
+		 *   typ: 'JWT'
+		 * }
+		 */
+		header?: Record<string, unknown>;
+		/**
+		 * The payload to use for the token. If present, it will replace any default values.
+		 *
+		 * @default
+		 * {
+		 *   iat: faker.date.recent(),
+		 *   exp: faker.date.soon(),
+		 *   nbf: faker.date.anytime(),
+		 *   iss: faker.company.name(),
+		 *   sub: faker.string.uuid(),
+		 *   aud: faker.string.uuid(),
+		 *   jti: faker.string.uuid()
+		 * }
+		 */
+		payload?: Record<string, unknown>;
+		/**
+		 * The date to use as reference point for the newly generated date.
+		 *
+		 * @default faker.defaultRefDate()
+		 */
+		refDate?: string | Date | number;
+	}): string;
 }
 /**
  * Module to generate addresses and locations. Prior to Faker 8.0.0, this module was known as `faker.address`.
@@ -4343,6 +4690,15 @@ export declare class LocationModule extends ModuleBase {
 	 * @since 8.0.0
 	 */
 	country(): string;
+	/**
+	 * Returns a random continent name.
+	 *
+	 * @example
+	 * faker.location.continent() // 'Asia'
+	 *
+	 * @since 9.1.0
+	 */
+	continent(): string;
 	/**
 	 * Returns a random [ISO_3166-1](https://en.wikipedia.org/wiki/ISO_3166-1) country code.
 	 *
@@ -6364,6 +6720,42 @@ export declare class NumberModule extends SimpleModuleBase {
 		 */
 		max?: bigint | number | string | boolean;
 	}): bigint;
+	/**
+	 * Returns a roman numeral in String format.
+	 * The bounds are inclusive.
+	 *
+	 * @param options Maximum value or options object.
+	 * @param options.min Lower bound for generated roman numerals. Defaults to `1`.
+	 * @param options.max Upper bound for generated roman numerals. Defaults to `3999`.
+	 *
+	 * @throws When `min` is greater than `max`.
+	 * @throws When `min`, `max` is not a number.
+	 * @throws When `min` is less than `1`.
+	 * @throws When `max` is greater than `3999`.
+	 *
+	 * @example
+	 * faker.number.romanNumeral() // "CMXCIII"
+	 * faker.number.romanNumeral(5) // "III"
+	 * faker.number.romanNumeral({ min: 10 }) // "XCIX"
+	 * faker.number.romanNumeral({ max: 20 }) // "XVII"
+	 * faker.number.romanNumeral({ min: 5, max: 10 }) // "VII"
+	 *
+	 * @since 9.2.0
+	 */
+	romanNumeral(options?: number | {
+		/**
+		 * Lower bound for generated number.
+		 *
+		 * @default 1
+		 */
+		min?: number;
+		/**
+		 * Upper bound for generated number.
+		 *
+		 * @default 3999
+		 */
+		max?: number;
+	}): string;
 }
 /**
  * This is a simplified Faker class that doesn't need any localized data to generate its output.
@@ -6439,6 +6831,10 @@ export declare class SimpleFaker {
 	 * Specify this only if you want to use it to achieve a specific goal,
 	 * such as sharing the same random generator with other instances/tools.
 	 * Defaults to faker's Mersenne Twister based pseudo random number generator.
+	 * @param options.seed The initial seed to use.
+	 * The seed can be used to generate reproducible values.
+	 * Refer to the `seed()` method for more information.
+	 * Defaults to a random seed.
 	 *
 	 * @example
 	 * import { SimpleFaker } from '@faker-js/faker';
@@ -6461,6 +6857,15 @@ export declare class SimpleFaker {
 		 * @default generateMersenne53Randomizer()
 		 */
 		randomizer?: Randomizer;
+		/**
+		 * The initial seed to use.
+		 * The seed can be used to generate reproducible values.
+		 *
+		 * Refer to the `seed()` method for more information.
+		 *
+		 * Defaults to a random seed.
+		 */
+		seed?: number;
 	});
 	/**
 	 * Sets the seed or generates a new one.
@@ -6614,6 +7019,7 @@ export declare class Faker extends SimpleFaker {
 	readonly definitions: LocaleProxy;
 	readonly airline: AirlineModule;
 	readonly animal: AnimalModule;
+	readonly book: BookModule;
 	readonly color: ColorModule;
 	readonly commerce: CommerceModule;
 	readonly company: CompanyModule;
@@ -6654,6 +7060,10 @@ export declare class Faker extends SimpleFaker {
 	 * Specify this only if you want to use it to achieve a specific goal,
 	 * such as sharing the same random generator with other instances/tools.
 	 * Defaults to faker's Mersenne Twister based pseudo random number generator.
+	 * @param options.seed The initial seed to use.
+	 * The seed can be used to generate reproducible values.
+	 * Refer to the `seed()` method for more information.
+	 * Defaults to a random seed.
 	 *
 	 * @example
 	 * import { Faker, es } from '@faker-js/faker';
@@ -6685,6 +7095,15 @@ export declare class Faker extends SimpleFaker {
 		 * @default generateMersenne53Randomizer()
 		 */
 		randomizer?: Randomizer;
+		/**
+		 * The initial seed to use.
+		 * The seed can be used to generate reproducible values.
+		 *
+		 * Refer to the `seed()` method for more information.
+		 *
+		 * Defaults to a random seed.
+		 */
+		seed?: number;
 	});
 	/**
 	 * Returns an object with metadata about the current locale.
@@ -6918,6 +7337,36 @@ export type AnimalDefinition = LocaleEntry<{
 	rodent: string[];
 	snake: string[];
 	type: string[];
+	pet_name: string[];
+}>;
+/**
+ * The possible definitions related to books.
+ */
+export type BookDefinition = LocaleEntry<{
+	/**
+	 * The names of actual book authors.
+	 */
+	author: string[];
+	/**
+	 * The formats of a book.
+	 */
+	format: string[];
+	/**
+	 * The names of some book genres.
+	 */
+	genre: string[];
+	/**
+	 * The names of actual book series.
+	 */
+	series: string[];
+	/**
+	 * The names of actual book titles.
+	 */
+	title: string[];
+	/**
+	 * The names of actual book publishers.
+	 */
+	publisher: string[];
 }>;
 /**
  * The possible definitions related to colors.
@@ -7190,6 +7639,7 @@ export type InternetDefinition = LocaleEntry<{
 	 * List of some HTTP status codes.
 	 */
 	http_status_code: Record<HTTPStatusCodeType, number[]>;
+	jwt_algorithm: string[];
 }>;
 /**
  * The possible definitions related to addresses and locations.
@@ -7199,7 +7649,7 @@ export type LocationDefinition = LocaleEntry<{
 	 * Postcodes patterns by state
 	 */
 	postcode_by_state: {
-		[state: string]: string;
+		[state: string]: string | string[];
 	};
 	/**
 	 * Postcodes patterns.
@@ -7221,6 +7671,10 @@ export type LocationDefinition = LocaleEntry<{
 	 * Common city suffixes.
 	 */
 	city_suffix: string[];
+	/**
+	 * The names of all continents.
+	 */
+	continent: string[];
 	/**
 	 * The names of all countries.
 	 */
@@ -7553,6 +8007,7 @@ export type LocaleDefinition = {
 	metadata?: MetadataDefinition;
 	airline?: AirlineDefinition;
 	animal?: AnimalDefinition;
+	book?: BookDefinition;
 	color?: ColorDefinition;
 	commerce?: CommerceDefinition;
 	company?: CompanyDefinition;
@@ -7592,83 +8047,904 @@ export type AirlineDefinition = LocaleEntry<{
 export declare class FakerError extends Error {
 }
 /**
- * Generates a MersenneTwister19937 randomizer with 32 bits of precision.
- * This is the default randomizer used by faker prior to v9.0.
+ * The faker instance for the `af_ZA` locale.
+ *
+ * - Language: Afrikaans (South Africa)
+ * - Endonym: Afrikaans (Suid-Afrika)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `af_ZA`
+ * - `en`
+ * - `base`
  */
-export declare function generateMersenne32Randomizer(): Randomizer;
-/**
- * Generates a MersenneTwister19937 randomizer with 53 bits of precision.
- * This is the default randomizer used by faker starting with v9.0.
- */
-export declare function generateMersenne53Randomizer(): Randomizer;
 declare const faker: Faker;
+/**
+ * The faker instance for the `ar` locale.
+ *
+ * - Language: Arabic
+ * - Endonym: اَلْعَرَبِيَّةُ
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `ar`
+ * - `en`
+ * - `base`
+ */
 declare const faker$1: Faker;
+/**
+ * The faker instance for the `az` locale.
+ *
+ * - Language: Azerbaijani
+ * - Endonym: azərbaycan dili
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `az`
+ * - `en`
+ * - `base`
+ */
 declare const faker$2: Faker;
+/**
+ * The faker instance for the `base` locale.
+ *
+ * The base locale contains data that is shared across all locales such as ISO codes, time zones, and more.
+ */
 declare const faker$3: Faker;
+/**
+ * The faker instance for the `cs_CZ` locale.
+ *
+ * - Language: Czech (Czechia)
+ * - Endonym: čeština (Česká republika)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `cs_CZ`
+ * - `en`
+ * - `base`
+ */
 declare const faker$4: Faker;
+/**
+ * The faker instance for the `da` locale.
+ *
+ * - Language: Danish
+ * - Endonym: Dansk
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `da`
+ * - `en`
+ * - `base`
+ */
 declare const faker$5: Faker;
+/**
+ * The faker instance for the `de` locale.
+ *
+ * - Language: German
+ * - Endonym: Deutsch
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `de`
+ * - `en`
+ * - `base`
+ */
 declare const faker$6: Faker;
+/**
+ * The faker instance for the `de_AT` locale.
+ *
+ * - Language: German (Austria)
+ * - Endonym: Deutsch (Österreich)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `de_AT`
+ * - `de`
+ * - `en`
+ * - `base`
+ */
 declare const faker$7: Faker;
+/**
+ * The faker instance for the `de_CH` locale.
+ *
+ * - Language: German (Switzerland)
+ * - Endonym: Deutsch (Schweiz)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `de_CH`
+ * - `de`
+ * - `en`
+ * - `base`
+ */
 declare const faker$8: Faker;
+/**
+ * The faker instance for the `dv` locale.
+ *
+ * - Language: Maldivian
+ * - Endonym: ދިވެހި
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `dv`
+ * - `en`
+ * - `base`
+ */
 declare const faker$9: Faker;
+/**
+ * The faker instance for the `el` locale.
+ *
+ * - Language: Greek
+ * - Endonym: Ελληνικά
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `el`
+ * - `en`
+ * - `base`
+ */
 declare const faker$10: Faker;
+/**
+ * The faker instance for the `en` locale.
+ *
+ * - Language: English
+ * - Endonym: English
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `en`
+ * - `base`
+ */
 declare const faker$11: Faker;
+/**
+ * The faker instance for the `en_AU` locale.
+ *
+ * - Language: English (Australia)
+ * - Endonym: English (Australia)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `en_AU`
+ * - `en`
+ * - `base`
+ */
 declare const faker$12: Faker;
+/**
+ * The faker instance for the `en_AU_ocker` locale.
+ *
+ * - Language: English (Australia Ocker)
+ * - Endonym: English (Australia)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `en_AU_ocker`
+ * - `en_AU`
+ * - `en`
+ * - `base`
+ */
 declare const faker$13: Faker;
+/**
+ * The faker instance for the `en_BORK` locale.
+ *
+ * - Language: English (Bork)
+ * - Endonym: English (Bork)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `en_BORK`
+ * - `en`
+ * - `base`
+ */
 declare const faker$14: Faker;
+/**
+ * The faker instance for the `en_CA` locale.
+ *
+ * - Language: English (Canada)
+ * - Endonym: English (Canada)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `en_CA`
+ * - `en`
+ * - `base`
+ */
 declare const faker$15: Faker;
+/**
+ * The faker instance for the `en_GB` locale.
+ *
+ * - Language: English (Great Britain)
+ * - Endonym: English (Great Britain)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `en_GB`
+ * - `en`
+ * - `base`
+ */
 declare const faker$16: Faker;
+/**
+ * The faker instance for the `en_GH` locale.
+ *
+ * - Language: English (Ghana)
+ * - Endonym: English (Ghana)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `en_GH`
+ * - `en`
+ * - `base`
+ */
 declare const faker$17: Faker;
+/**
+ * The faker instance for the `en_HK` locale.
+ *
+ * - Language: English (Hong Kong)
+ * - Endonym: English (Hong Kong)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `en_HK`
+ * - `en`
+ * - `base`
+ */
 declare const faker$18: Faker;
+/**
+ * The faker instance for the `en_IE` locale.
+ *
+ * - Language: English (Ireland)
+ * - Endonym: English (Ireland)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `en_IE`
+ * - `en`
+ * - `base`
+ */
 declare const faker$19: Faker;
+/**
+ * The faker instance for the `en_IN` locale.
+ *
+ * - Language: English (India)
+ * - Endonym: English (India)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `en_IN`
+ * - `en`
+ * - `base`
+ */
 declare const faker$20: Faker;
+/**
+ * The faker instance for the `en_NG` locale.
+ *
+ * - Language: English (Nigeria)
+ * - Endonym: English (Nigeria)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `en_NG`
+ * - `en`
+ * - `base`
+ */
 declare const faker$21: Faker;
+/**
+ * The faker instance for the `en_US` locale.
+ *
+ * - Language: English (United States)
+ * - Endonym: English (United States)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `en_US`
+ * - `en`
+ * - `base`
+ */
 declare const faker$22: Faker;
+/**
+ * The faker instance for the `en_ZA` locale.
+ *
+ * - Language: English (South Africa)
+ * - Endonym: English (South Africa)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `en_ZA`
+ * - `en`
+ * - `base`
+ */
 declare const faker$23: Faker;
+/**
+ * The faker instance for the `eo` locale.
+ *
+ * - Language: Esperanto
+ * - Endonym: Esperanto
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `eo`
+ * - `en`
+ * - `base`
+ */
 declare const faker$24: Faker;
+/**
+ * The faker instance for the `es` locale.
+ *
+ * - Language: Spanish
+ * - Endonym: Español
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `es`
+ * - `en`
+ * - `base`
+ */
 declare const faker$25: Faker;
+/**
+ * The faker instance for the `es_MX` locale.
+ *
+ * - Language: Spanish (Mexico)
+ * - Endonym: Español (México)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `es_MX`
+ * - `es`
+ * - `en`
+ * - `base`
+ */
 declare const faker$26: Faker;
+/**
+ * The faker instance for the `fa` locale.
+ *
+ * - Language: Farsi/Persian
+ * - Endonym: فارسی
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `fa`
+ * - `en`
+ * - `base`
+ */
 declare const faker$27: Faker;
+/**
+ * The faker instance for the `fi` locale.
+ *
+ * - Language: Finnish
+ * - Endonym: suomi
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `fi`
+ * - `en`
+ * - `base`
+ */
 declare const faker$28: Faker;
+/**
+ * The faker instance for the `fr` locale.
+ *
+ * - Language: French
+ * - Endonym: Français
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `fr`
+ * - `en`
+ * - `base`
+ */
 declare const faker$29: Faker;
+/**
+ * The faker instance for the `fr_BE` locale.
+ *
+ * - Language: French (Belgium)
+ * - Endonym: Français (Belgique)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `fr_BE`
+ * - `fr`
+ * - `en`
+ * - `base`
+ */
 declare const faker$30: Faker;
+/**
+ * The faker instance for the `fr_CA` locale.
+ *
+ * - Language: French (Canada)
+ * - Endonym: Français (Canada)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `fr_CA`
+ * - `fr`
+ * - `en`
+ * - `base`
+ */
 declare const faker$31: Faker;
+/**
+ * The faker instance for the `fr_CH` locale.
+ *
+ * - Language: French (Switzerland)
+ * - Endonym: Français (Suisse)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `fr_CH`
+ * - `fr`
+ * - `en`
+ * - `base`
+ */
 declare const faker$32: Faker;
+/**
+ * The faker instance for the `fr_LU` locale.
+ *
+ * - Language: French (Luxembourg)
+ * - Endonym: Français (Luxembourg)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `fr_LU`
+ * - `fr`
+ * - `en`
+ * - `base`
+ */
 declare const faker$33: Faker;
+/**
+ * The faker instance for the `fr_SN` locale.
+ *
+ * - Language: French (Senegal)
+ * - Endonym: Français (Sénégal)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `fr_SN`
+ * - `fr`
+ * - `en`
+ * - `base`
+ */
 declare const faker$34: Faker;
+/**
+ * The faker instance for the `he` locale.
+ *
+ * - Language: Hebrew
+ * - Endonym: עברית
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `he`
+ * - `en`
+ * - `base`
+ */
 declare const faker$35: Faker;
+/**
+ * The faker instance for the `hr` locale.
+ *
+ * - Language: Croatian
+ * - Endonym: Hrvatski
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `hr`
+ * - `en`
+ * - `base`
+ */
 declare const faker$36: Faker;
+/**
+ * The faker instance for the `hu` locale.
+ *
+ * - Language: Hungarian
+ * - Endonym: magyar
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `hu`
+ * - `en`
+ * - `base`
+ */
 declare const faker$37: Faker;
+/**
+ * The faker instance for the `hy` locale.
+ *
+ * - Language: Armenian
+ * - Endonym: Հայերեն
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `hy`
+ * - `en`
+ * - `base`
+ */
 declare const faker$38: Faker;
+/**
+ * The faker instance for the `id_ID` locale.
+ *
+ * - Language: Indonesian (Indonesia)
+ * - Endonym: Bahasa Indonesia (Indonesia)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `id_ID`
+ * - `en`
+ * - `base`
+ */
 declare const faker$39: Faker;
+/**
+ * The faker instance for the `it` locale.
+ *
+ * - Language: Italian
+ * - Endonym: Italiano
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `it`
+ * - `en`
+ * - `base`
+ */
 declare const faker$40: Faker;
+/**
+ * The faker instance for the `ja` locale.
+ *
+ * - Language: Japanese
+ * - Endonym: 日本語
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `ja`
+ * - `en`
+ * - `base`
+ */
 declare const faker$41: Faker;
+/**
+ * The faker instance for the `ka_GE` locale.
+ *
+ * - Language: Georgian (Georgia)
+ * - Endonym: ქართული (საქართველო)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `ka_GE`
+ * - `en`
+ * - `base`
+ */
 declare const faker$42: Faker;
+/**
+ * The faker instance for the `ko` locale.
+ *
+ * - Language: Korean
+ * - Endonym: 한국어
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `ko`
+ * - `en`
+ * - `base`
+ */
 declare const faker$43: Faker;
+/**
+ * The faker instance for the `lv` locale.
+ *
+ * - Language: Latvian
+ * - Endonym: latviešu valoda
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `lv`
+ * - `en`
+ * - `base`
+ */
 declare const faker$44: Faker;
+/**
+ * The faker instance for the `mk` locale.
+ *
+ * - Language: Macedonian
+ * - Endonym: македонски јазик
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `mk`
+ * - `en`
+ * - `base`
+ */
 declare const faker$45: Faker;
+/**
+ * The faker instance for the `nb_NO` locale.
+ *
+ * - Language: Norwegian (Norway)
+ * - Endonym: Norsk bokmål (Norge)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `nb_NO`
+ * - `en`
+ * - `base`
+ */
 declare const faker$46: Faker;
+/**
+ * The faker instance for the `ne` locale.
+ *
+ * - Language: Nepali
+ * - Endonym: नेपाली
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `ne`
+ * - `en`
+ * - `base`
+ */
 declare const faker$47: Faker;
+/**
+ * The faker instance for the `nl` locale.
+ *
+ * - Language: Dutch
+ * - Endonym: Nederlands
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `nl`
+ * - `en`
+ * - `base`
+ */
 declare const faker$48: Faker;
+/**
+ * The faker instance for the `nl_BE` locale.
+ *
+ * - Language: Dutch (Belgium)
+ * - Endonym: Nederlands (België)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `nl_BE`
+ * - `nl`
+ * - `en`
+ * - `base`
+ */
 declare const faker$49: Faker;
+/**
+ * The faker instance for the `pl` locale.
+ *
+ * - Language: Polish
+ * - Endonym: Polski
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `pl`
+ * - `en`
+ * - `base`
+ */
 declare const faker$50: Faker;
+/**
+ * The faker instance for the `pt_BR` locale.
+ *
+ * - Language: Portuguese (Brazil)
+ * - Endonym: Português (Brasil)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `pt_BR`
+ * - `en`
+ * - `base`
+ */
 declare const faker$51: Faker;
+/**
+ * The faker instance for the `pt_PT` locale.
+ *
+ * - Language: Portuguese (Portugal)
+ * - Endonym: Português (Portugal)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `pt_PT`
+ * - `en`
+ * - `base`
+ */
 declare const faker$52: Faker;
+/**
+ * The faker instance for the `ro` locale.
+ *
+ * - Language: Romanian
+ * - Endonym: Română
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `ro`
+ * - `en`
+ * - `base`
+ */
 declare const faker$53: Faker;
+/**
+ * The faker instance for the `ro_MD` locale.
+ *
+ * - Language: Romanian (Moldova)
+ * - Endonym: Română (Moldova)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `ro_MD`
+ * - `ro`
+ * - `en`
+ * - `base`
+ */
 declare const faker$54: Faker;
+/**
+ * The faker instance for the `ru` locale.
+ *
+ * - Language: Russian
+ * - Endonym: Русский
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `ru`
+ * - `en`
+ * - `base`
+ */
 declare const faker$55: Faker;
+/**
+ * The faker instance for the `sk` locale.
+ *
+ * - Language: Slovak
+ * - Endonym: slovenčina
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `sk`
+ * - `en`
+ * - `base`
+ */
 declare const faker$56: Faker;
+/**
+ * The faker instance for the `sr_RS_latin` locale.
+ *
+ * - Language: Serbian (Serbia, Latin)
+ * - Endonym: srpski (Srbija, latinica)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `sr_RS_latin`
+ * - `en`
+ * - `base`
+ */
 declare const faker$57: Faker;
+/**
+ * The faker instance for the `sv` locale.
+ *
+ * - Language: Swedish
+ * - Endonym: Svenska
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `sv`
+ * - `en`
+ * - `base`
+ */
 declare const faker$58: Faker;
+/**
+ * The faker instance for the `th` locale.
+ *
+ * - Language: Thai
+ * - Endonym: ไทย
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `th`
+ * - `en`
+ * - `base`
+ */
 declare const faker$59: Faker;
+/**
+ * The faker instance for the `tr` locale.
+ *
+ * - Language: Turkish
+ * - Endonym: Türkçe
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `tr`
+ * - `en`
+ * - `base`
+ */
 declare const faker$60: Faker;
+/**
+ * The faker instance for the `uk` locale.
+ *
+ * - Language: Ukrainian
+ * - Endonym: Українська
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `uk`
+ * - `en`
+ * - `base`
+ */
 declare const faker$61: Faker;
+/**
+ * The faker instance for the `ur` locale.
+ *
+ * - Language: Urdu
+ * - Endonym: اردو
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `ur`
+ * - `en`
+ * - `base`
+ */
 declare const faker$62: Faker;
+/**
+ * The faker instance for the `uz_UZ_latin` locale.
+ *
+ * - Language: Uzbek (Uzbekistan, Latin)
+ * - Endonym: O'zbekcha
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `uz_UZ_latin`
+ * - `en`
+ * - `base`
+ */
 declare const faker$63: Faker;
+/**
+ * The faker instance for the `vi` locale.
+ *
+ * - Language: Vietnamese
+ * - Endonym: Tiếng Việt
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `vi`
+ * - `en`
+ * - `base`
+ */
 declare const faker$64: Faker;
+/**
+ * The faker instance for the `yo_NG` locale.
+ *
+ * - Language: Yoruba (Nigeria)
+ * - Endonym: Yoruba (Naijiria)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `yo_NG`
+ * - `en`
+ * - `base`
+ */
 declare const faker$65: Faker;
+/**
+ * The faker instance for the `zh_CN` locale.
+ *
+ * - Language: Chinese (China)
+ * - Endonym: 中文 (中国)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `zh_CN`
+ * - `en`
+ * - `base`
+ */
 declare const faker$66: Faker;
+/**
+ * The faker instance for the `zh_TW` locale.
+ *
+ * - Language: Chinese (Taiwan)
+ * - Endonym: 中文 (臺灣)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `zh_TW`
+ * - `en`
+ * - `base`
+ */
 declare const faker$67: Faker;
+/**
+ * The faker instance for the `zu_ZA` locale.
+ *
+ * - Language: Zulu (South Africa)
+ * - Endonym: isiZulu (Iningizimu Afrika)
+ *
+ * This instance uses the following locales internally (in descending precedence):
+ *
+ * - `zu_ZA`
+ * - `en`
+ * - `base`
+ */
 declare const faker$68: Faker;
 export declare const allFakers: {
 	readonly af_ZA: Faker;
@@ -7741,74 +9017,487 @@ export declare const allFakers: {
 	readonly zh_TW: Faker;
 	readonly zu_ZA: Faker;
 };
+/**
+ * The locale data for the `af_ZA` locale.
+ *
+ * - Language: Afrikaans (South Africa)
+ * - Endonym: Afrikaans (Suid-Afrika)
+ */
 export declare const af_ZA: LocaleDefinition;
+/**
+ * The locale data for the `ar` locale.
+ *
+ * - Language: Arabic
+ * - Endonym: اَلْعَرَبِيَّةُ
+ */
 export declare const ar: LocaleDefinition;
+/**
+ * The locale data for the `az` locale.
+ *
+ * - Language: Azerbaijani
+ * - Endonym: azərbaycan dili
+ */
 export declare const az: LocaleDefinition;
+/**
+ * The locale data for the `base` locale.
+ *
+ * The base locale contains data that is shared across all locales such as ISO codes, time zones, and more.
+ */
 export declare const base: LocaleDefinition;
+/**
+ * The locale data for the `cs_CZ` locale.
+ *
+ * - Language: Czech (Czechia)
+ * - Endonym: čeština (Česká republika)
+ */
 export declare const cs_CZ: LocaleDefinition;
+/**
+ * The locale data for the `da` locale.
+ *
+ * - Language: Danish
+ * - Endonym: Dansk
+ */
 export declare const da: LocaleDefinition;
+/**
+ * The locale data for the `de` locale.
+ *
+ * - Language: German
+ * - Endonym: Deutsch
+ */
 export declare const de: LocaleDefinition;
+/**
+ * The locale data for the `de_AT` locale.
+ *
+ * - Language: German (Austria)
+ * - Endonym: Deutsch (Österreich)
+ */
 export declare const de_AT: LocaleDefinition;
+/**
+ * The locale data for the `de_CH` locale.
+ *
+ * - Language: German (Switzerland)
+ * - Endonym: Deutsch (Schweiz)
+ */
 export declare const de_CH: LocaleDefinition;
+/**
+ * The locale data for the `dv` locale.
+ *
+ * - Language: Maldivian
+ * - Endonym: ދިވެހި
+ */
 export declare const dv: LocaleDefinition;
+/**
+ * The locale data for the `el` locale.
+ *
+ * - Language: Greek
+ * - Endonym: Ελληνικά
+ */
 export declare const el: LocaleDefinition;
+/**
+ * The locale data for the `en` locale.
+ *
+ * - Language: English
+ * - Endonym: English
+ */
 export declare const en: LocaleDefinition;
+/**
+ * The locale data for the `en_AU` locale.
+ *
+ * - Language: English (Australia)
+ * - Endonym: English (Australia)
+ */
 export declare const en_AU: LocaleDefinition;
+/**
+ * The locale data for the `en_AU_ocker` locale.
+ *
+ * - Language: English (Australia Ocker)
+ * - Endonym: English (Australia)
+ */
 export declare const en_AU_ocker: LocaleDefinition;
+/**
+ * The locale data for the `en_BORK` locale.
+ *
+ * - Language: English (Bork)
+ * - Endonym: English (Bork)
+ */
 export declare const en_BORK: LocaleDefinition;
+/**
+ * The locale data for the `en_CA` locale.
+ *
+ * - Language: English (Canada)
+ * - Endonym: English (Canada)
+ */
 export declare const en_CA: LocaleDefinition;
+/**
+ * The locale data for the `en_GB` locale.
+ *
+ * - Language: English (Great Britain)
+ * - Endonym: English (Great Britain)
+ */
 export declare const en_GB: LocaleDefinition;
+/**
+ * The locale data for the `en_GH` locale.
+ *
+ * - Language: English (Ghana)
+ * - Endonym: English (Ghana)
+ */
 export declare const en_GH: LocaleDefinition;
+/**
+ * The locale data for the `en_HK` locale.
+ *
+ * - Language: English (Hong Kong)
+ * - Endonym: English (Hong Kong)
+ */
 export declare const en_HK: LocaleDefinition;
+/**
+ * The locale data for the `en_IE` locale.
+ *
+ * - Language: English (Ireland)
+ * - Endonym: English (Ireland)
+ */
 export declare const en_IE: LocaleDefinition;
+/**
+ * The locale data for the `en_IN` locale.
+ *
+ * - Language: English (India)
+ * - Endonym: English (India)
+ */
 export declare const en_IN: LocaleDefinition;
+/**
+ * The locale data for the `en_NG` locale.
+ *
+ * - Language: English (Nigeria)
+ * - Endonym: English (Nigeria)
+ */
 export declare const en_NG: LocaleDefinition;
+/**
+ * The locale data for the `en_US` locale.
+ *
+ * - Language: English (United States)
+ * - Endonym: English (United States)
+ */
 export declare const en_US: LocaleDefinition;
+/**
+ * The locale data for the `en_ZA` locale.
+ *
+ * - Language: English (South Africa)
+ * - Endonym: English (South Africa)
+ */
 export declare const en_ZA: LocaleDefinition;
+/**
+ * The locale data for the `eo` locale.
+ *
+ * - Language: Esperanto
+ * - Endonym: Esperanto
+ */
 export declare const eo: LocaleDefinition;
+/**
+ * The locale data for the `es` locale.
+ *
+ * - Language: Spanish
+ * - Endonym: Español
+ */
 export declare const es: LocaleDefinition;
+/**
+ * The locale data for the `es_MX` locale.
+ *
+ * - Language: Spanish (Mexico)
+ * - Endonym: Español (México)
+ */
 export declare const es_MX: LocaleDefinition;
+/**
+ * The locale data for the `fa` locale.
+ *
+ * - Language: Farsi/Persian
+ * - Endonym: فارسی
+ */
 export declare const fa: LocaleDefinition;
+/**
+ * The locale data for the `fi` locale.
+ *
+ * - Language: Finnish
+ * - Endonym: suomi
+ */
 export declare const fi: LocaleDefinition;
+/**
+ * The locale data for the `fr` locale.
+ *
+ * - Language: French
+ * - Endonym: Français
+ */
 export declare const fr: LocaleDefinition;
+/**
+ * The locale data for the `fr_BE` locale.
+ *
+ * - Language: French (Belgium)
+ * - Endonym: Français (Belgique)
+ */
 export declare const fr_BE: LocaleDefinition;
+/**
+ * The locale data for the `fr_CA` locale.
+ *
+ * - Language: French (Canada)
+ * - Endonym: Français (Canada)
+ */
 export declare const fr_CA: LocaleDefinition;
+/**
+ * The locale data for the `fr_CH` locale.
+ *
+ * - Language: French (Switzerland)
+ * - Endonym: Français (Suisse)
+ */
 export declare const fr_CH: LocaleDefinition;
+/**
+ * The locale data for the `fr_LU` locale.
+ *
+ * - Language: French (Luxembourg)
+ * - Endonym: Français (Luxembourg)
+ */
 export declare const fr_LU: LocaleDefinition;
+/**
+ * The locale data for the `fr_SN` locale.
+ *
+ * - Language: French (Senegal)
+ * - Endonym: Français (Sénégal)
+ */
 export declare const fr_SN: LocaleDefinition;
+/**
+ * The locale data for the `he` locale.
+ *
+ * - Language: Hebrew
+ * - Endonym: עברית
+ */
 export declare const he: LocaleDefinition;
+/**
+ * The locale data for the `hr` locale.
+ *
+ * - Language: Croatian
+ * - Endonym: Hrvatski
+ */
 export declare const hr: LocaleDefinition;
+/**
+ * The locale data for the `hu` locale.
+ *
+ * - Language: Hungarian
+ * - Endonym: magyar
+ */
 export declare const hu: LocaleDefinition;
+/**
+ * The locale data for the `hy` locale.
+ *
+ * - Language: Armenian
+ * - Endonym: Հայերեն
+ */
 export declare const hy: LocaleDefinition;
+/**
+ * The locale data for the `id_ID` locale.
+ *
+ * - Language: Indonesian (Indonesia)
+ * - Endonym: Bahasa Indonesia (Indonesia)
+ */
 export declare const id_ID: LocaleDefinition;
+/**
+ * The locale data for the `it` locale.
+ *
+ * - Language: Italian
+ * - Endonym: Italiano
+ */
 export declare const it: LocaleDefinition;
+/**
+ * The locale data for the `ja` locale.
+ *
+ * - Language: Japanese
+ * - Endonym: 日本語
+ */
 export declare const ja: LocaleDefinition;
+/**
+ * The locale data for the `ka_GE` locale.
+ *
+ * - Language: Georgian (Georgia)
+ * - Endonym: ქართული (საქართველო)
+ */
 export declare const ka_GE: LocaleDefinition;
+/**
+ * The locale data for the `ko` locale.
+ *
+ * - Language: Korean
+ * - Endonym: 한국어
+ */
 export declare const ko: LocaleDefinition;
+/**
+ * The locale data for the `lv` locale.
+ *
+ * - Language: Latvian
+ * - Endonym: latviešu valoda
+ */
 export declare const lv: LocaleDefinition;
+/**
+ * The locale data for the `mk` locale.
+ *
+ * - Language: Macedonian
+ * - Endonym: македонски јазик
+ */
 export declare const mk: LocaleDefinition;
+/**
+ * The locale data for the `nb_NO` locale.
+ *
+ * - Language: Norwegian (Norway)
+ * - Endonym: Norsk bokmål (Norge)
+ */
 export declare const nb_NO: LocaleDefinition;
+/**
+ * The locale data for the `ne` locale.
+ *
+ * - Language: Nepali
+ * - Endonym: नेपाली
+ */
 export declare const ne: LocaleDefinition;
+/**
+ * The locale data for the `nl` locale.
+ *
+ * - Language: Dutch
+ * - Endonym: Nederlands
+ */
 export declare const nl: LocaleDefinition;
+/**
+ * The locale data for the `nl_BE` locale.
+ *
+ * - Language: Dutch (Belgium)
+ * - Endonym: Nederlands (België)
+ */
 export declare const nl_BE: LocaleDefinition;
+/**
+ * The locale data for the `pl` locale.
+ *
+ * - Language: Polish
+ * - Endonym: Polski
+ */
 export declare const pl: LocaleDefinition;
+/**
+ * The locale data for the `pt_BR` locale.
+ *
+ * - Language: Portuguese (Brazil)
+ * - Endonym: Português (Brasil)
+ */
 export declare const pt_BR: LocaleDefinition;
+/**
+ * The locale data for the `pt_PT` locale.
+ *
+ * - Language: Portuguese (Portugal)
+ * - Endonym: Português (Portugal)
+ */
 export declare const pt_PT: LocaleDefinition;
+/**
+ * The locale data for the `ro` locale.
+ *
+ * - Language: Romanian
+ * - Endonym: Română
+ */
 export declare const ro: LocaleDefinition;
+/**
+ * The locale data for the `ro_MD` locale.
+ *
+ * - Language: Romanian (Moldova)
+ * - Endonym: Română (Moldova)
+ */
 export declare const ro_MD: LocaleDefinition;
+/**
+ * The locale data for the `ru` locale.
+ *
+ * - Language: Russian
+ * - Endonym: Русский
+ */
 export declare const ru: LocaleDefinition;
+/**
+ * The locale data for the `sk` locale.
+ *
+ * - Language: Slovak
+ * - Endonym: slovenčina
+ */
 export declare const sk: LocaleDefinition;
+/**
+ * The locale data for the `sr_RS_latin` locale.
+ *
+ * - Language: Serbian (Serbia, Latin)
+ * - Endonym: srpski (Srbija, latinica)
+ */
 export declare const sr_RS_latin: LocaleDefinition;
+/**
+ * The locale data for the `sv` locale.
+ *
+ * - Language: Swedish
+ * - Endonym: Svenska
+ */
 export declare const sv: LocaleDefinition;
+/**
+ * The locale data for the `th` locale.
+ *
+ * - Language: Thai
+ * - Endonym: ไทย
+ */
 export declare const th: LocaleDefinition;
+/**
+ * The locale data for the `tr` locale.
+ *
+ * - Language: Turkish
+ * - Endonym: Türkçe
+ */
 export declare const tr: LocaleDefinition;
+/**
+ * The locale data for the `uk` locale.
+ *
+ * - Language: Ukrainian
+ * - Endonym: Українська
+ */
 export declare const uk: LocaleDefinition;
+/**
+ * The locale data for the `ur` locale.
+ *
+ * - Language: Urdu
+ * - Endonym: اردو
+ */
 export declare const ur: LocaleDefinition;
+/**
+ * The locale data for the `uz_UZ_latin` locale.
+ *
+ * - Language: Uzbek (Uzbekistan, Latin)
+ * - Endonym: O'zbekcha
+ */
 export declare const uz_UZ_latin: LocaleDefinition;
+/**
+ * The locale data for the `vi` locale.
+ *
+ * - Language: Vietnamese
+ * - Endonym: Tiếng Việt
+ */
 export declare const vi: LocaleDefinition;
+/**
+ * The locale data for the `yo_NG` locale.
+ *
+ * - Language: Yoruba (Nigeria)
+ * - Endonym: Yoruba (Naijiria)
+ */
 export declare const yo_NG: LocaleDefinition;
+/**
+ * The locale data for the `zh_CN` locale.
+ *
+ * - Language: Chinese (China)
+ * - Endonym: 中文 (中国)
+ */
 export declare const zh_CN: LocaleDefinition;
+/**
+ * The locale data for the `zh_TW` locale.
+ *
+ * - Language: Chinese (Taiwan)
+ * - Endonym: 中文 (臺灣)
+ */
 export declare const zh_TW: LocaleDefinition;
+/**
+ * The locale data for the `zu_ZA` locale.
+ *
+ * - Language: Zulu (South Africa)
+ * - Endonym: isiZulu (Iningizimu Afrika)
+ */
 export declare const zu_ZA: LocaleDefinition;
 export declare const allLocales: {
 	af_ZA: LocaleDefinition;
@@ -7899,6 +9588,42 @@ export declare const allLocales: {
  * @since 8.0.0
  */
 export declare function mergeLocales(locales: LocaleDefinition[]): LocaleDefinition;
+/**
+ * Generates a MersenneTwister19937 randomizer with 32 bits of precision.
+ * This is the default randomizer used by faker prior to v9.0.
+ *
+ * @param seed The initial seed to use. Defaults to a random number.
+ *
+ * @example
+ * import { de, en, generateMersenne32Randomizer, Faker } from '@faker-js/faker';
+ *
+ * const randomizer = generateMersenne32Randomizer();
+ * randomizer.seed(42);
+ * // Share the same randomizer between multiple instances
+ * const customFaker1 = new Faker({ locale: de, randomizer });
+ * const customFaker2 = new Faker({ locale: en, randomizer });
+ *
+ * @since 8.2.0
+ */
+export declare function generateMersenne32Randomizer(seed?: number): Randomizer;
+/**
+ * Generates a MersenneTwister19937 randomizer with 53 bits of precision.
+ * This is the default randomizer used by faker starting with v9.0.
+ *
+ * @param seed The initial seed to use. Defaults to a random number.
+ *
+ * @example
+ * import { de, en, generateMersenne53Randomizer, Faker } from '@faker-js/faker';
+ *
+ * const randomizer = generateMersenne53Randomizer();
+ * randomizer.seed(42);
+ * // Share the same randomizer between multiple instances
+ * const customFaker1 = new Faker({ locale: de, randomizer });
+ * const customFaker2 = new Faker({ locale: en, randomizer });
+ *
+ * @since 9.0.0
+ */
+export declare function generateMersenne53Randomizer(seed?: number): Randomizer;
 
 export {
 	faker as fakerAF_ZA,
@@ -7974,3 +9699,4 @@ export {
 };
 
 export {};
+// "9.2.0" 

@@ -132,3 +132,6 @@ dist
 build
 docs
 _bProd.ts
+
+!schema-generator.tgz
+!schema-generator-utils.tgz

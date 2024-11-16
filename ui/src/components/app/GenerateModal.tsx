@@ -23,26 +23,28 @@ const saveAs = (blob: Blob, filename: string) => {
 	a.remove();
 };
 
-const executeGenerate = async (selected: boolean[], bZip: boolean) => {
+const executeGenerate = (selected: boolean[], bZip: boolean) => {
 	isGenerateLoading.value = true;
-	const result = await executeGenerate_(false);
-	if (bZip) {
-		const zip = new JSZip();
-		for (let i = 0; i < result.length; i++) {
-			if (!selected[i]) continue;
-			const { filename, content } = dataToFile(result[i].data, result[i].name);
-			zip.file(filename, content);
+	setTimeout(async () => {
+		const result = await executeGenerate_(false);
+		if (bZip) {
+			const zip = new JSZip();
+			for (let i = 0; i < result.length; i++) {
+				if (!selected[i]) continue;
+				const { filename, content } = dataToFile(result[i].data, result[i].name);
+				zip.file(filename, content);
+			}
+			const content = await zip.generateAsync({ type: "blob" });
+			saveAs(content, "data.zip");
+		} else {
+			for (let i = 0; i < result.length; i++) {
+				if (!selected[i]) continue;
+				const { filename, type, content } = dataToFile(result[i].data, result[i].name);
+				saveAs(new Blob([content], { type }), filename);
+			}
 		}
-		const content = await zip.generateAsync({ type: "blob" });
-		saveAs(content, "data.zip");
-	} else {
-		for (let i = 0; i < result.length; i++) {
-			if (!selected[i]) continue;
-			const { filename, type, content } = dataToFile(result[i].data, result[i].name);
-			saveAs(new Blob([content], { type }), filename);
-		}
-	}
-	isGenerateLoading.value = false;
+		isGenerateLoading.value = false;
+	}, 10);
 };
 
 /**

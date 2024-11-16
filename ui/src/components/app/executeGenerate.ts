@@ -1,12 +1,9 @@
 import { transpile } from "typescript";
 import { Result } from "../../Common/CommonModel";
 import { selectedCodeSignal } from "../../context/GlobalState";
-import indexRaw from "../../resources/indexRaw";
+import indexRaw from "../../resources/indexRaw"; // Note: index.js modified: export removed as well as __commonJS wrapper
 import introRaw from "../../resources/introRaw";
 import { setConsoleType } from "../CodePart/CustomConsole";
-
-const aliasStr = `var [faker, generate, getIdFn, getRandomElementFn, getRandomElementsFn, getRandomFloatFn, getRandomIntFn, randomBoolean, randomDate, randomFloat, randomInt, randomString, shuffle, unique_] = [
-	faker2, generate3, getIdFn2, getRandomElementFn2, getRandomElementsFn2, getRandomFloatFn2, getRandomIntFn2, randomBoolean2, randomDate2, randomFloat2, randomInt2, randomString2, shuffle2, unique_2];`;
 
 setConsoleType("custom");
 
@@ -17,10 +14,11 @@ setConsoleType("custom");
  */
 export const executeGenerate_ = async (bPreview: boolean): Promise<Result> => {
 	let replacedCode = selectedCodeSignal.value.value.code.slice(introRaw.length);
-	if (bPreview) replacedCode = replacedCode.replace(/generate/g, "generatePreview");
+	if (bPreview) Object.assign(window, { process: { argv: ["--preview"] } });
+	else Object.assign(window, { process: { argv: [] } });
 	const replacedIntro = `const getResult = async (): Promise<Result> => {${replacedCode}`;
 	const transpiledCode = transpile(replacedIntro);
 
-	const f = new Function(`var exports = {}; ${indexRaw} ${aliasStr} ${transpiledCode} return getResult();`);
+	const f = new Function(`var exports = {}; ${indexRaw} ${transpiledCode} return getResult();`);
 	return await f();
 };

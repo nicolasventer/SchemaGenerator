@@ -1,1 +1,0 @@
-export default "export type Result = { name: string; data: unknown[] }[];\r\n";

@@ -25,13 +25,16 @@ const partWidth = computed(() => (isBothPartDisplayed.value ? "50%" : "100%"));
 const onCodeChange = () => {
 	const monacoCurrentCode = globalState.monacoEditor.value?.getValue() ?? "";
 	if (!monacoCurrentCode.startsWith(introRaw)) {
-		if (selectedCodeSignal.value.value.code.startsWith(introRaw)) {
-			globalState.monacoEditor.value?.setValue(selectedCodeSignal.value.value.code);
-			toast.error("You can't change the intro code");
+		// if the code doesn't start with the intro code
+		const index = monacoCurrentCode.indexOf("// DO NOT CHANGE TEXT ABOVE");
+		if (index !== -1) {
+			// if the "DO NOT CHANGE TEXT ABOVE" is found
+			globalState.monacoEditor.value?.setValue(introRaw + monacoCurrentCode.slice(index + "// DO NOT CHANGE TEXT ABOVE".length));
+			toast("The text above has been reset", { icon: "ℹ️" });
 			return;
 		}
 		globalState.monacoEditor.value?.setValue(introRaw + monacoCurrentCode);
-		toast.error("You can't change the intro code");
+		toast("The text above has been reset", { icon: "ℹ️" });
 		return;
 	}
 	selectedCodeSignal.value.value = {
