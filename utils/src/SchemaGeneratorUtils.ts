@@ -30,6 +30,9 @@ export type Result = {
 	data: unknown[];
 }[];
 
+var window: Window & typeof globalThis = globalThis as any;
+if (window && !window.process) window.process = { argv: [] } as any;
+
 /**
  * Generate an object from a generator. It has a limit of 10 elements in the array whether the `--preview` argument is provided. \
  * For complex objects, you will need to specify the type of the generator. \
