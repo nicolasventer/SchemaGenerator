@@ -1,6 +1,6 @@
 {
 	"name": "schema-generator-utils",
-	"version": "1.2.0",
+	"version": "1.3.0",
 	"description": "Utils for schema-generator for writing generation into files",
 	"files": [
 		"build"

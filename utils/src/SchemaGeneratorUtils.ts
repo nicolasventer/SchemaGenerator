@@ -64,9 +64,7 @@ const defaultBPretty = process.argv.includes("--pretty");
  * @param options.bPretty whether to make the json pretty, can be set with the `--pretty` flag
  */
 export const WriteToFile = async (result: Result, options: WriteToFileOptions = {}) => {
-	const folder = options.folder ?? defaultFolder;
-	const bZip = options.bZip ?? defaultBZip;
-	const bPretty = options.bPretty ?? defaultBPretty;
+	const { folder = defaultFolder, bZip = defaultBZip, bPretty = defaultBPretty } = options;
 	const stringify = bPretty ? (data: unknown) => JSON.stringify(data, null, 2) : JSON.stringify;
 	fs.mkdirSync(folder, { recursive: true });
 	if (bZip) {

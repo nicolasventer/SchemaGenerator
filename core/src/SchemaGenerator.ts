@@ -80,12 +80,21 @@ export const generate = <T>(generator: SchemaGenerator<T>): T => generate_(gener
  */
 export const generatePreview = <T>(generator: SchemaGenerator<T>): T => generate_(generator, true);
 
+type NotAFunc<T> = T extends (...args: any[]) => any ? never : T;
+
 /** static class that allows to store and retrieve data with a key (be aware that the generation order is the order of the keys) */
 export class Store {
 	private constructor() {} // static only
 	private static _data = new Map<string, any>();
+	/** get a value from the store */
 	static get = <T>(key: string) => this._data.get(key) as T;
-	static set = <T>(key: string, value: T) => {
+	/**
+	 * set a value in the store and return it. \
+	 * functions are forbidden in order to avoid errors while using the store. \
+	 * for example: `{ name: Store.set("name", randomString) }` is bad because the value of "name" is a function. \
+	 * use `{ name: () => Store.set("name", randomString()) }` instead.
+	 */
+	static set = <T>(key: string, value: NotAFunc<T>) => {
 		this._data.set(key, value);
 		return value;
 	};
@@ -179,7 +188,36 @@ export const addTime = (date: Date, amount: number, unit: TimeUnitT) => new Date
 /**
  * @param min minimum value (included)
  * @param max maximum value (excluded)
- * @returns a function that returns a random date between min (included) and max (excluded)
  */
-export const getRandomDateFn = (min: Date, max: Date) => () =>
-	new Date(min.getTime() + Math.random() * (max.getTime() - min.getTime()));
+type DateRange = [min: Date, max: Date];
+
+/**
+ * @param minOffsetAmount minimum offset amount (included)
+ * @param maxOffsetAmount maximum offset amount (excluded)
+ * @param unit unit of time
+ * @param baseDate base date (default: new Date())
+ */
+type OffsetDateRange = [minOffsetAmount: number, maxOffsetAmount: number, unit: TimeUnitT, baseDate?: Date];
+
+const isDateRange = (params: DateRange | OffsetDateRange): params is DateRange =>
+	params.length === 2 && params[0] instanceof Date;
+
+/**
+ * @overload Get a function that returns a random date between min and max
+ */
+/**
+ * Get a function that returns a random date around a base date
+ * @returns a function that returns a random date
+ */
+export const getRandomDateFn =
+	(...params: DateRange | OffsetDateRange) =>
+	() => {
+		if (isDateRange(params)) {
+			const [min, max] = params;
+			return new Date(min.getTime() + Math.random() * (max.getTime() - min.getTime()));
+		}
+		const [minOffsetAmount, maxOffsetAmount, unit, baseDate = new Date()] = params;
+		const min = addTime(baseDate, minOffsetAmount, unit);
+		const max = addTime(baseDate, maxOffsetAmount, unit);
+		return new Date(min.getTime() + Math.random() * (max.getTime() - min.getTime()));
+	};
