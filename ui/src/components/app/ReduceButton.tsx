@@ -1,5 +1,6 @@
 import { ActionIcon } from "@mantine/core";
 import { ChevronsLeft, ChevronsRight } from "lucide-react";
+import { flushSync } from "preact/compat";
 
 /**
  * Button to change a isReduced state
@@ -9,5 +10,11 @@ import { ChevronsLeft, ChevronsRight } from "lucide-react";
  * @returns the button
  */
 export const ReduceButton = ({ isLeft, onClick }: { isLeft: boolean; onClick: () => void }) => (
-	<ActionIcon>{isLeft ? <ChevronsLeft onClick={onClick} /> : <ChevronsRight onClick={onClick} />}</ActionIcon>
+	<ActionIcon>
+		{isLeft ? (
+			<ChevronsLeft onClick={() => document.startViewTransition(() => flushSync(() => onClick()))} />
+		) : (
+			<ChevronsRight onClick={() => document.startViewTransition(() => flushSync(() => onClick()))} />
+		)}
+	</ActionIcon>
 );

@@ -4,6 +4,7 @@ import { globalState, isHighOrHeaderDisplayed } from "../../context/GlobalState"
 import { Horizontal, Vertical } from "../../utils/ComponentToolbox";
 import { If } from "../../utils/MultiIf";
 import { modeToMonacoTheme } from "../app/CustomDarkModeButton";
+import { GithubButton } from "../app/GithubButton";
 import { ReduceButton } from "../app/ReduceButton";
 import { DarkModeButton } from "../DarkModeButton";
 import { PreviewSegmentedControl } from "./PreviewSegmentedControl";
@@ -33,10 +34,13 @@ export const PreviewPartHeader = () => {
 						{globalState.isAboveMd.value && !globalState.isCodePartReduced.value && (
 							<ReduceButton isLeft={true} onClick={() => (globalState.isCodePartReduced.value = true)} />
 						)}
-						<DarkModeButton
-							useTransition
-							onClick={(mode) => globalState.monacoEditor.value?.updateOptions({ theme: modeToMonacoTheme(mode) })}
-						/>
+						<Horizontal gap={16}>
+							<GithubButton />
+							<DarkModeButton
+								useTransition
+								onClick={(mode) => globalState.monacoEditor.value?.updateOptions({ theme: modeToMonacoTheme(mode) })}
+							/>
+						</Horizontal>
 					</Horizontal>
 					<PreviewSegmentedControl />
 				</Vertical>

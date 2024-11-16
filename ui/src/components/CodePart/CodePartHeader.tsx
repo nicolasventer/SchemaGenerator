@@ -8,6 +8,7 @@ import { TodoFn } from "../../utils/commonUtils";
 import { Horizontal, Vertical } from "../../utils/ComponentToolbox";
 import { If } from "../../utils/MultiIf";
 import { CustomDarkModeButton } from "../app/CustomDarkModeButton";
+import { GithubButton } from "../app/GithubButton";
 import { ReduceButton } from "../app/ReduceButton";
 import { CodeTab } from "./CodeTab";
 
@@ -47,6 +48,7 @@ export const CodePartHeader = () => {
 						</Horizontal>
 						{!globalState.isAboveMd.value && (
 							<Horizontal gap={16}>
+								<GithubButton />
 								<CustomDarkModeButton />
 								<ReduceButton
 									isLeft={true}
@@ -56,6 +58,7 @@ export const CodePartHeader = () => {
 						)}
 						{globalState.isAboveMd.value && globalState.isPreviewPartReduced.value && (
 							<Horizontal gap={16}>
+								<GithubButton />
 								<CustomDarkModeButton />
 								<ReduceButton isLeft={true} onClick={() => (globalState.isPreviewPartReduced.value = false)} />
 							</Horizontal>
