@@ -1,0 +1,34 @@
+{
+	"name": "schema-generator-utils",
+	"version": "1.2.0",
+	"description": "Utils for schema-generator for writing generation into files",
+	"files": [
+		"build"
+	],
+	"main": "build/SchemaGeneratorUtils.js",
+	"exports": {
+		"import": "./build/SchemaGeneratorUtils.js",
+		"require": "./build/SchemaGeneratorUtils.js",
+		"types": "./build/SchemaGeneratorUtils.d.ts"
+	},
+	"type": "commonjs",
+	"scripts": {
+		"build": "cd src && tsc"
+	},
+	"author": "Nicolas VENTER",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nicolasventer/SchemaGenerator.git"
+	},
+	"bugs": {
+		"url": "https://github.com/nicolasventer/SchemaGenerator/issues"
+	},
+	"dependencies": {
+		"jszip": "3.10.1",
+		"schema-generator": "https://github.com/nicolasventer/SchemaGenerator/releases/latest/download/schema-generator.tgz"
+	},
+	"devDependencies": {
+		"@types/node": "22.9.0"
+	}
+}

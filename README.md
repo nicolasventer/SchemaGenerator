@@ -8,6 +8,8 @@ This library does not have any dependencies but it is recommended to use it with
 
 ![Screenshot](misc/Schema_Generator_screenshot.jpeg)
 
+You should also take a look at [SchemaGeneratorUtils](./utils/) for some useful functions.
+
 ## Features
 
 - type checking
@@ -28,7 +30,7 @@ npm install https://github.com/nicolasventer/SchemaGenerator/releases/latest/dow
 
 ### Simple example
 
-Content of [examples/simple/simple_example.ts](examples/simple/simple_example.ts)
+Content of [core/examples/simple/simple_example.ts](core/examples/simple/simple_example.ts)
 
 ```ts
 import { SchemaGenerator, generate, getIdFn, getRandomElementFn, getRandomIntFn, randomString } from "../../src/SchemaGenerator";
@@ -82,7 +84,7 @@ Example output:
 
 <summary>Show advanced example</summary>
 
-Content of [examples/advanced/advanced_example.ts](examples/advanced/advanced_example.ts)
+Content of [core/examples/advanced/advanced_example.ts](core/examples/advanced/advanced_example.ts)
 
 ```ts
 import { faker } from "@faker-js/faker"; // here faker-js is used, it is not mandatory but should match perfectly with this library
@@ -135,7 +137,7 @@ Example output:
 
 ### Js-example
 
-Content of [examples/js/js_example.js](examples/js/js_example.js)
+Content of [core/examples/js/js_example.js](core/examples/js/js_example.js)
 
 ```js
 // @ts-check

@@ -29,7 +29,7 @@ export const unique_ = <T>(gen: () => T): (() => T) => {
 /**
  * For complex objects, you will need to specify the type of the generator. \
  * If the number of elements to generate for an array is not specified, it will be between 0 (included) and 10 (included). \
- * If the number of elements to generate for an array is specified, it will be between min (included) and max (included). \
+ * If the number of elements to generate for an array is specified, it will be between min (included) and max (included).
  * @template T type of the object
  * @param generator generator for the object
  * @param bPreview if true, the number of elements in the array will be limited to 10
@@ -62,7 +62,7 @@ const generate_ = <T>(generator: SchemaGenerator<T>, bPreview: boolean): T => {
  * Generate an object from a generator without limiting the number of elements in the array. \
  * For complex objects, you will need to specify the type of the generator. \
  * If the number of elements to generate for an array is not specified, it will be between 0 (included) and 10 (included). \
- * If the number of elements to generate for an array is specified, it will be between min (included) and max (included). \
+ * If the number of elements to generate for an array is specified, it will be between min (included) and max (included).
  * @template T type of the object
  * @param generator generator for the object
  * @returns the generated object
@@ -73,7 +73,7 @@ export const generate = <T>(generator: SchemaGenerator<T>): T => generate_(gener
  * Generate an object from a generator with a limit of 10 elements in the array. \
  * For complex objects, you will need to specify the type of the generator. \
  * If the number of elements to generate for an array is not specified, it will be between 0 (included) and 10 (included). \
- * If the number of elements to generate for an array is specified, it will be between min (included) and max (included). \
+ * If the number of elements to generate for an array is specified, it will be between min (included) and max (included).
  * @template T type of the object
  * @param generator generator for the object
  * @returns the generated object

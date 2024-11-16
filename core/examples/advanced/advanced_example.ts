@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker"; // here faker-js is used, it is not mandatory but should match perfectly with this library
 // require the build of SchemaGenerator (use: npm run build)
-import { SchemaGenerator, Store, getIdFn, generate, randomBoolean, unique_, randomInt } from "../../build/SchemaGenerator";
 import fs from "fs";
+import { SchemaGenerator, Store, generate, getIdFn, randomBoolean, randomInt, unique_ } from "../../src/SchemaGenerator";
 
 type Team = { id: number; name: string };
 

@@ -103,5 +103,7 @@ dist
 # TernJS port file
 .tern-port
 build/
-examples/advanced/Teams_10.json
-examples/advanced/Users_100.json
+core/examples/advanced/Teams_10.json
+core/examples/advanced/Users_100.json
+ui/src/_bProd.ts
+utils/misc/Users.json
