@@ -1,13 +1,17 @@
 import { ActionIcon, Button, Select, Tabs } from "@mantine/core";
 import { useClickOutside } from "@mantine/hooks";
+import JSZip from "jszip";
 import { Download, SquarePlus } from "lucide-react";
 import { createCodeFn, defaultCode, globalState, isHighOrHeaderDisplayed } from "../../context/GlobalState";
-import driverCarRaw from "../../resources/samples/driverCarRaw";
-import userTeamRaw from "../../resources/samples/userTeamRaw";
+import outroRaw from "../../resources/outro?raw";
+import driverCarRaw from "../../resources/samples/driverCar?raw";
+import userTeamRaw from "../../resources/samples/userTeam?raw";
+import schemaGeneratorProjectRaw from "../../resources/schema-generator-project.zip?arraybuffer";
 import { TodoFn } from "../../utils/commonUtils";
 import { Horizontal, Vertical } from "../../utils/ComponentToolbox";
 import { If } from "../../utils/MultiIf";
 import { CustomDarkModeButton } from "../app/CustomDarkModeButton";
+import { saveAs } from "../app/executeGenerate";
 import { GithubButton } from "../app/GithubButton";
 import { ReduceButton } from "../app/ReduceButton";
 import { CodeTab } from "./CodeTab";
@@ -27,6 +31,36 @@ const selectSample = (name: string | null) => {
 	const sample = samples.find((s) => s.name === name);
 	if (!sample) throw new Error("Sample not found");
 	createCodeFn({ fileName: name ?? "", code: sample.data })();
+};
+
+const codeWithOutro = (code: string) => {
+	const outroIndex = code.indexOf("// CALL ONLY GET RESULT BELOW");
+	if (outroIndex === -1) return `${code}\n${outroRaw}`;
+	return code;
+};
+
+const downloadProject = async () => {
+	const zip = new JSZip();
+	await zip.loadAsync(schemaGeneratorProjectRaw);
+	zip.file("index.ts", codeWithOutro(globalState.codeList.value[globalState.currentCodeIndex.value].value.code));
+	const fileSet = new Set<string>();
+	fileSet.add("index");
+	for (let i = 0; i < globalState.codeList.value.length; i++) {
+		if (i === globalState.currentCodeIndex.value) continue;
+		const code = globalState.codeList.value[i].value;
+		const fileName = code.fileName.replace(".ts", "");
+		if (fileSet.has(fileName)) {
+			let j = 1;
+			while (fileSet.has(`${fileName}${j}`)) j++;
+			fileSet.add(`${fileName}${j}`);
+			zip.file(`${fileName}${j}.ts`, codeWithOutro(code.code));
+		} else {
+			fileSet.add(fileName);
+			zip.file(`${fileName}.ts`, codeWithOutro(code.code));
+		}
+	}
+	const blob = await zip.generateAsync({ type: "blob" });
+	saveAs(blob, "schema-generator-project.zip");
 };
 
 /**
@@ -80,7 +114,7 @@ export const CodePartHeader = () => {
 							</Tabs.List>
 						</Tabs>
 						<ActionIcon>
-							<Download onClick={TodoFn("Download Project")} />
+							<Download onClick={downloadProject} />
 						</ActionIcon>
 					</Horizontal>
 				</Vertical>

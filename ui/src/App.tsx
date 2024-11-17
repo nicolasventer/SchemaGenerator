@@ -9,9 +9,9 @@ import { globalState } from "./context/GlobalState";
 import { initMonaco } from "./libs/monaco/initMonaco";
 import { HomePage } from "./pages/exports_";
 import type { HomePage as _HomePage } from "./pages/Home";
-import dayJsRaw from "./resources/dayJsRaw";
-import fakerjsRaw from "./resources/fakerjsRaw";
-import SchemaGeneratorUtilsRaw from "./resources/SchemaGeneratorUtilsRaw";
+import dayJsRaw from "./resources/dayJs?raw";
+import fakerjsRaw from "./resources/fakerjs?raw";
+import SchemaGeneratorUtilsRaw from "./resources/SchemaGeneratorUtils?raw";
 import "./style.css";
 import { WriteToolboxClasses } from "./utils/ComponentToolbox";
 

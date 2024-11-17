@@ -3,7 +3,7 @@ import { signal, useComputed, useSignal } from "@preact/signals";
 import JSZip from "jszip";
 import { globalState } from "../../context/GlobalState";
 import { Horizontal } from "../../utils/ComponentToolbox";
-import { executeGenerate_ } from "./executeGenerate";
+import { executeGenerate_, saveAs } from "./executeGenerate";
 
 const isGenerateLoading = signal(false);
 
@@ -12,16 +12,6 @@ const dataToFile = (data: unknown[], name: string) => ({
 	type: "application/json",
 	content: data.length <= 1000 ? JSON.stringify(data, null, "\t") : JSON.stringify(data),
 });
-
-const saveAs = (blob: Blob, filename: string) => {
-	const url = URL.createObjectURL(blob);
-	const a = document.createElement("a");
-	a.href = url;
-	a.download = filename;
-	a.click();
-	URL.revokeObjectURL(url);
-	a.remove();
-};
 
 const executeGenerate = (selected: boolean[], bZip: boolean) => {
 	isGenerateLoading.value = true;

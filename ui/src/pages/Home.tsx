@@ -13,7 +13,7 @@ import {
 } from "../components/PreviewPart/PreviewPart";
 import { globalState, selectedCodeSignal } from "../context/GlobalState";
 import { useMonacoEditor } from "../libs/monaco/MonacoEditor";
-import introRaw from "../resources/introRaw";
+import introRaw from "../resources/intro?raw";
 import { FullViewport, Horizontal } from "../utils/ComponentToolbox";
 
 const isBothPartDisplayed = computed(

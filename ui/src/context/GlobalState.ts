@@ -1,7 +1,7 @@
 import { batch, computed, effect, signal, Signal } from "@preact/signals";
 import type { editor } from "monaco-editor";
 import { Code, ColorSchemeType, DataPreviewType, Log, Result } from "../Common/CommonModel";
-import demoRaw from "../resources/demoRaw";
+import demoRaw from "../resources/demo?raw";
 import { SignalToValue } from "../utils/signalUtils";
 
 /** The type of the global state of the application. */
