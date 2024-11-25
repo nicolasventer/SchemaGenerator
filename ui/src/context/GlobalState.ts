@@ -4,6 +4,9 @@ import { Code, ColorSchemeType, DataPreviewType, Log, Result } from "../Common/C
 import demoRaw from "../resources/demo?raw";
 import { SignalToValue } from "../utils/signalUtils";
 
+/** the key of the local storage */
+export const LOCAL_STORAGE_KEY = "schemaGenerator_globalState" as const;
+
 /** The type of the global state of the application. */
 export type GlobalState = {
 	/** the color scheme of the application */
@@ -70,7 +73,9 @@ type LocalStorageState = SignalToValue<
 export const defaultCode = { fileName: "New file", code: demoRaw };
 
 const loadGlobalState = (): GlobalState => {
-	const storedGlobalState = JSON.parse(localStorage.getItem("globalState") ?? "{}") as Partial<SignalToValue<LocalStorageState>>;
+	const storedGlobalState = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) ?? "{}") as Partial<
+		SignalToValue<LocalStorageState>
+	>;
 
 	return {
 		colorScheme: signal(storedGlobalState.colorScheme ?? "dark"),
@@ -119,7 +124,7 @@ export const xsSm = computed(() => (globalState.isAboveMd.value ? "sm" : "xs"));
 /** "compact-md" if the screen is above md, "compact-sm" otherwise. */
 export const compactXsSm = computed(() => `compact-${xsSm.value}`);
 
-effect(() => localStorage.setItem("globalState", JSON.stringify(localStorageState.value)));
+effect(() => localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(localStorageState.value)));
 
 effect(() => void document.body.classList.toggle("dark", globalState.colorScheme.value === "dark"));
 
