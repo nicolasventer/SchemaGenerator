@@ -11,6 +11,7 @@ import { HomePage } from "./pages/exports_";
 import type { HomePage as _HomePage } from "./pages/Home";
 import dayJsRaw from "./resources/dayJs?raw";
 import fakerjsRaw from "./resources/fakerjs?raw";
+import SchemaGeneratorRaw from "./resources/SchemaGenerator?raw";
 import SchemaGeneratorUtilsRaw from "./resources/SchemaGeneratorUtils?raw";
 import "./style.css";
 import { WriteToolboxClasses } from "./utils/ComponentToolbox";
@@ -21,6 +22,7 @@ initMonaco();
 
 languages.typescript.typescriptDefaults.addExtraLib(`declare module '@faker-js/faker' { ${fakerjsRaw} }`);
 languages.typescript.typescriptDefaults.addExtraLib(`declare module 'dayjs' { ${dayJsRaw} }`);
+languages.typescript.typescriptDefaults.addExtraLib(`declare module 'schema-generator' { ${SchemaGeneratorRaw} }`);
 languages.typescript.typescriptDefaults.addExtraLib(`declare module 'schema-generator-utils' { ${SchemaGeneratorUtilsRaw} }`);
 
 // many themes here: https://editor.bitwiser.in/
